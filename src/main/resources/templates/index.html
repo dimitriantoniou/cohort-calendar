@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Home</title>
-</head>
+<head th:replace="fragments :: head"></head>
+
 <body>
+<nav th:replace="fragments :: navbar"></nav>
     <h1>Cohort Calendar</h1>
 </body>
 </html>

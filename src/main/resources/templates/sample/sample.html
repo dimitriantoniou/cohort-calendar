@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${title}"></title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 <body>
-<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navbar"></nav>
 
 <a href="/sample/add">Add Example</a>
 <ul>
