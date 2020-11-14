@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
     @RequestMapping(value="")
-    @ResponseBody
     public String index(){
-        return "Welcome to the Codeup Cohort Calendar";
+        return "index";
     }
 }
