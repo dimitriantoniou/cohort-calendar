@@ -7,10 +7,9 @@
 <body>
 <h1 th:text="${title}"></h1>
 
-<a href="/sample/add">Add Example</a>
-<ul>
-    <li th:each="example : ${examples}" th:text="${example}"></li>
-</ul>
-
+<form method="post">
+    <input type="text" name="exampleName"/>
+    <input type="submit" value="Add Example"/>
+</form>
 </body>
 </html>
