@@ -3,6 +3,7 @@ package com.edimitri.cohortcalendar.controllers;
 import com.edimitri.cohortcalendar.models.ExampleData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,8 +31,7 @@ public class SampleController {
     }
 
     @RequestMapping(value="add",method=RequestMethod.POST)
-    public String processAddSampleForm(@RequestParam String exampleName, @RequestParam String exampleDescription){
-        Example newExample = new Example(exampleName, exampleDescription);
+    public String processAddSampleForm(@ModelAttribute Example newExample){
         ExampleData.add(newExample);
 
         //redirect to /sample
