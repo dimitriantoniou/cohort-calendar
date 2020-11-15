@@ -38,11 +38,19 @@ Live demo can be viewed here:
 - assign holidays and no-class days
 - output a graduation date
 
+##To Do
+- ~~abstract class for program type that initializes contact hours and daily hours and declares start date and name~~
+- ~~cohort class that extends program type and a constructor with name and start date~~
+- ~~create a cohort form view~~
+- ~~create a CohortData class to store temporary data~~
+- ~~create a cohortcontroller~~
+- figure out how to get the cohort data submitted on the form to show up on the table
+in the cohorts view when redirected
+- get dropdown to work
+
 ## Project Organization
+- controllers
+- models
+- views
 
 ## Project setup and run
-
-##To Do
-- cohort class that extends program type and a constructor with name and start date
-- abstract class for program type that initializes contact hours and daily hours and declares start date and name
-- create a cohort form
