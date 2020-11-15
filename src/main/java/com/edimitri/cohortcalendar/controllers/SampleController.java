@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("sample")
 public class SampleController {
-    static ArrayList<String> examples = new ArrayList<>();
+    static HashMap<String,String> examples = new HashMap<>();
 
     //request path: /sample
     @RequestMapping(value="")
@@ -29,8 +30,8 @@ public class SampleController {
     }
 
     @RequestMapping(value="add",method=RequestMethod.POST)
-    public String processAddSampleForm(@RequestParam String exampleName){
-        examples.add(exampleName);
+    public String processAddSampleForm(@RequestParam String exampleName, @RequestParam String exampleDescription){
+        examples.put(exampleName, exampleDescription);
 
         //redirect to /sample
         return "redirect:";
