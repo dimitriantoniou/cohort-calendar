@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import com.edimitri.cohortcalendar.models.Example;
 
 @Controller
 @RequestMapping("sample")
 public class SampleController {
-    static HashMap<String,String> examples = new HashMap<>();
+    static ArrayList<Example> examples = new ArrayList<>();
 
     //request path: /sample
     @RequestMapping(value="")
@@ -31,9 +32,26 @@ public class SampleController {
 
     @RequestMapping(value="add",method=RequestMethod.POST)
     public String processAddSampleForm(@RequestParam String exampleName, @RequestParam String exampleDescription){
-        examples.put(exampleName, exampleDescription);
+        Example newExample = new Example(exampleName, exampleDescription);
+        examples.add(newExample);
 
         //redirect to /sample
         return "redirect:";
     }
+
+    @RequestMapping(value="remove",method=RequestMethod.GET)
+    public String displayRemoveExampleForm(Model model){
+        model.addAttribute("examples",examples);
+        model.addAttribute("title","Remove Example");
+        return "sample/remove";
+    }
+
+    @RequestMapping(value="remove",method=RequestMethod.POST)
+    public String processRemoveExampleForm(@RequestParam ArrayList<String> example){
+        for(String anExample : example){
+            examples.remove(anExample);
+        }
+        return "redirect:";
+    }
+
 }

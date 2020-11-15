@@ -14,8 +14,8 @@
         <th>Description</th>
     </tr>
     <tr th:each="example : ${examples}">
-        <td th:text="${example.key}"></td>
-        <td th:text="${example.value}"></td>
+        <td th:text="${example.name}"></td>
+        <td th:text="${example.description}"></td>
     </tr>
 </table>
 
