@@ -47,6 +47,11 @@ Live demo can be viewed here:
 - figure out how to get the cohort data submitted on the form to show up on the table
 in the cohorts view when redirected
 - get dropdown to work
+- build db design
+- build footer fragment
+- create holiday model class with name, date, and hours properties
+- create holiday constructor
+- create holidays view fragment
 
 ## Project Organization
 - controllers
