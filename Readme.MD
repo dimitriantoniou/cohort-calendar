@@ -18,18 +18,24 @@ Live demo can be viewed here:
 ## User stories
 
 #### As a visitor, I can:
-- read about the site, login, or view calendars
+- read about the site and view published calendars
+- easily access key calendar information, like start dates, graduation dates, and holidays
+- login or sign-up as a user and create a profile page with automated auth with Codeup domain
+- non Codeup domains need approval by admin
 - view calendars by location, program, or year
 - search for key terms like a cohort name, date, or event
 - view the calendar for any individual cohort by name
 
 #### As a user, I can:
+- add comments to cohort calendars with post confirmation
 - add new cohorts
-- edit cohort calendars by program, location, start date
+- edit cohort calendars that I have edit access to by program, location, start date
 
 ####As an admin, I can:
 - manage users (Add, Delete, Update)
 - manager user permissions
+- give users permissions to edit different calendars
+- moderate comments, including hiding/deleting
 
 ####Feature List
 - register users and login auth

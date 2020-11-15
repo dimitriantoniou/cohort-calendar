@@ -1,26 +1,34 @@
 package com.edimitri.cohortcalendar.models;
+import javax.persistence.*;
 
-
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
 
-    private int userId;
-
+    @Column(nullable=false)
     private static int nextId=1;
 
+    @Column(nullable=false)
     private String firstName;
 
+    @Column(nullable=false)
     private String lastName;
 
+    @Column(nullable=false,unique=true)
     private String email;
 
+    @Column(nullable=false)
     private String password;
 
+    @Column(nullable=false,columnDefinition="boolean default false")
     private boolean isAdmin;
 
 
     public User(int id, String email, String firstName, String lastName, String password, boolean isAdmin) {
         this();
-        this.userId=id;
+        this.id=id;
         this.firstName=firstName;
         this.lastName=lastName;
         this.email = email;
@@ -28,7 +36,7 @@ public class User {
         this.isAdmin=isAdmin;
     }
     public User(){
-        userId=nextId;
+        id=nextId;
         nextId++;
     }
 
@@ -64,12 +72,12 @@ public class User {
         this.password = password;
     }
 
-    public int getUserId() {
-        return userId;
+    public long getUserId() {
+        return id;
     }
 
     public void setUserId(int userId) {
-        this.userId = userId;
+        this.id = id;
     }
 
     public boolean isAdmin() {
