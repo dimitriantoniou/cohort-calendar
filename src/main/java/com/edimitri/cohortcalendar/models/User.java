@@ -1,18 +1,31 @@
 package com.edimitri.cohortcalendar.models;
 
+
 public class User {
-    public String firstName;
-    public String lastName;
-    public String email;
-    private String password;
+
     private int userId;
+
     private static int nextId=1;
 
-    public User(String email, String firstName, String lastName) {
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+
+    private String password;
+
+    private boolean isAdmin;
+
+
+    public User(int id, String email, String firstName, String lastName, String password, boolean isAdmin) {
         this();
-        this.email = email;
+        this.userId=id;
         this.firstName=firstName;
         this.lastName=lastName;
+        this.email = email;
+        this.password=password;
+        this.isAdmin=isAdmin;
     }
     public User(){
         userId=nextId;
@@ -50,4 +63,21 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 }
+
