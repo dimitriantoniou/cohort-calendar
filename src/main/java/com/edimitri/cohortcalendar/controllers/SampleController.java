@@ -1,5 +1,6 @@
 package com.edimitri.cohortcalendar.controllers;
 
+import com.edimitri.cohortcalendar.models.ExampleData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +14,11 @@ import com.edimitri.cohortcalendar.models.Example;
 @Controller
 @RequestMapping("sample")
 public class SampleController {
-    static ArrayList<Example> examples = new ArrayList<>();
 
     //request path: /sample
     @RequestMapping(value="")
     public String sample(Model model){
-
-        model.addAttribute("examples",examples);
+        model.addAttribute("examples", ExampleData.getAll());
         model.addAttribute("title","My Sample");
         return "sample/sample";
     }
@@ -33,7 +32,7 @@ public class SampleController {
     @RequestMapping(value="add",method=RequestMethod.POST)
     public String processAddSampleForm(@RequestParam String exampleName, @RequestParam String exampleDescription){
         Example newExample = new Example(exampleName, exampleDescription);
-        examples.add(newExample);
+        ExampleData.add(newExample);
 
         //redirect to /sample
         return "redirect:";
@@ -41,15 +40,15 @@ public class SampleController {
 
     @RequestMapping(value="remove",method=RequestMethod.GET)
     public String displayRemoveExampleForm(Model model){
-        model.addAttribute("examples",examples);
+        model.addAttribute("examples",ExampleData.getAll());
         model.addAttribute("title","Remove Example");
         return "sample/remove";
     }
 
     @RequestMapping(value="remove",method=RequestMethod.POST)
-    public String processRemoveExampleForm(@RequestParam ArrayList<String> example){
-        for(String anExample : example){
-            examples.remove(anExample);
+    public String processRemoveExampleForm(@RequestParam int[] exampleIds){
+        for(int exampleId : exampleIds){
+            ExampleData.remove(exampleId);
         }
         return "redirect:";
     }

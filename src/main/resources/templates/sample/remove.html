@@ -6,8 +6,8 @@
 
 <form method="post" style="max-width:600px;">
     <div th:each="example : ${examples}" class="checkbox">
-        <input type="checkbox" name="example" th:value="${example.name}" th:id="${example.name}"/>
-        <label th:for="${example.name}" th:text="${example.name}"></label>
+        <input type="checkbox" name="exampleIds" th:value="${example.exampleId}" th:id="${example.exampleId}"/>
+        <label th:for="${example.exampleId}" th:text="${example.name}"></label>
     </br>
     </div>
 
