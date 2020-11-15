@@ -41,3 +41,8 @@ Live demo can be viewed here:
 ## Project Organization
 
 ## Project setup and run
+
+##To Do
+- cohort class that extends program type and a constructor with name and start date
+- abstract class for program type that initializes contact hours and daily hours and declares start date and name
+- create a cohort form
