@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title th:text="${title}">Title</title>
 
-    <link rel="stylesheet" th:href="@{css/styles.css}"/>
-    <script type="text/javascript" th:src="@{js/script.js}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
