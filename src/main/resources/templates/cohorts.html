@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<title>Cohorts</title>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+<h1>Cohorts</h1>
+<h2>Web Dev Cohorts</h2>
+
+<table class="table">
+    <tr>
+        <th>Cohort Name</th>
+        <th>Program</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="cohort : ${cohorts}">
+        <td th:text="${cohort.name}"></td>
+        <td th:text="${cohort.description}"></td>
+        <!--<td th:text="${WebDevCohort.startDate}"></td>
+        <td th:text="${WebDevCohort.cohortId}"></td>-->
+    </tr>
+</table>
+<br/>
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label for="name-field">Name</label>
+        <input class="form-control" type="text" id="name-field" name="name"/>
+    </div>
+    <div class="form-group">
+        <label for="desc-field">Description</label>
+        <input class="form-control" type="text" id="desc-field" name="startDate"/>
+    </div>
+    <input type="submit" value="Add Cohort"/>
+</form>
+</body>
+</html>
