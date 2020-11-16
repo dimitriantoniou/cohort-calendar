@@ -5,7 +5,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "cohorts")
-
 public class Cohort {
 
     @Id
