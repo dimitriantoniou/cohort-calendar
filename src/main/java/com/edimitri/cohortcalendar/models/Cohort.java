@@ -8,10 +8,10 @@ import java.util.Date;
 public class Cohort {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable=false)
+    @Column(nullable=false,unique=true)
     private String name;
 
     @Column(nullable=false)
@@ -27,6 +27,7 @@ public class Cohort {
     private int contactHours;
 
     public Cohort(String name, Date startDate, long programType, long campus, int contactHours) {
+        this();
         this.name = name;
         this.startDate = startDate;
         this.programType = programType;
@@ -61,4 +62,35 @@ public class Cohort {
         this.id = cohortId;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getProgramType() {
+        return programType;
+    }
+
+    public void setProgramType(long programType) {
+        this.programType = programType;
+    }
+
+    public long getCampus() {
+        return campus;
+    }
+
+    public void setCampus(long campus) {
+        this.campus = campus;
+    }
+
+    public int getContactHours() {
+        return contactHours;
+    }
+
+    public void setContactHours(int contactHours) {
+        this.contactHours = contactHours;
+    }
 }
