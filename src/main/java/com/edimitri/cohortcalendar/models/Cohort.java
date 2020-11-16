@@ -26,8 +26,15 @@ public class Cohort {
     @Column(nullable=false)
     private int contactHours;
 
-    public Cohort(String name) {
-        this.name=name;
+    public Cohort(String name, Date startDate, long programType, long campus, int contactHours) {
+        this.name = name;
+        this.startDate = startDate;
+        this.programType = programType;
+        this.campus = campus;
+        this.contactHours = contactHours;
+    }
+
+    public Cohort(){
     }
 
     public String getName() {
