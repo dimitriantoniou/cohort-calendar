@@ -9,9 +9,6 @@ public class User {
     private long id;
 
     @Column(nullable=false)
-    private static int nextId=1;
-
-    @Column(nullable=false)
     private String firstName;
 
     @Column(nullable=false)
