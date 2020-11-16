@@ -1,24 +1,24 @@
 package com.edimitri.cohortcalendar.models;
 
+import javax.persistence.*;
 import java.util.Date;
 
-public class WebDevCohort {
+@Entity
+@Table(name = "cohorts")
+
+public class Cohort {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
+
     private String name;
     private Date startDate;
-    private String program="Web Dev";
+    private long program;
     private int cohortId;
-    private static int nextId=1;
-    private String description;
 
-    public WebDevCohort(String name, String description) {
-        this();
+    public Cohort(String name) {
         this.name=name;
-        this.description=description;
-    }
-
-    public WebDevCohort(){
-        cohortId=nextId;
-        nextId++;
     }
 
     public String getName() {
@@ -45,11 +45,4 @@ public class WebDevCohort {
         this.cohortId = cohortId;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
