@@ -10,7 +10,10 @@ public class Holiday {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable=false)
     private String holidayName;
+
+    @Column(nullable=false)
     private Date holidayDate;
 
     public Holiday(String holidayName, Date holidayDate) {
