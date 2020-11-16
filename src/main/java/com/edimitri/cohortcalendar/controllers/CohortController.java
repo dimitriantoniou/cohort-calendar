@@ -1,5 +1,6 @@
 package com.edimitri.cohortcalendar.controllers;
 
+import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,8 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value="cohorts")
+//@RequestMapping(value="cohorts")
 public class CohortController {
+
+    private CohortRepository cohortDao;
+
+    public CohortController(CohortRepository cohortDao){this.cohortDao=cohortDao;}
 
     /*
     @RequestMapping(value="")
@@ -18,12 +23,14 @@ public class CohortController {
     }
      */
 
+    /*
     @RequestMapping(value="", method= RequestMethod.GET)
     public String displayAddCohortForm(Model model){
         model.addAttribute("title","Add Cohort");
         return"cohorts";
     }
 
+     */
     /*
     @RequestMapping(value="",method=RequestMethod.POST)
     public String processAddCohortForm(@ModelAttribute Cohort newCohort){
