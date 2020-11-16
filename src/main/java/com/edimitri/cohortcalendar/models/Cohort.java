@@ -12,10 +12,20 @@ public class Cohort {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable=false)
     private String name;
+
+    @Column(nullable=false)
     private Date startDate;
-    private long program;
-    private int cohortId;
+
+    @Column(nullable=false)
+    private long programType;
+
+    @Column(nullable=false)
+    private long campus;
+
+    @Column(nullable=false)
+    private int contactHours;
 
     public Cohort(String name) {
         this.name=name;
@@ -37,12 +47,12 @@ public class Cohort {
         this.startDate = startDate;
     }
 
-    public int getCohortId() {
-        return cohortId;
+    public long getCohortId() {
+        return id;
     }
 
     public void setCohortId(int cohortId) {
-        this.cohortId = cohortId;
+        this.id = cohortId;
     }
 
 }

@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="cohorts")
 public class CohortController {
 
+    /*
     @RequestMapping(value="")
     public String cohort(Model model){
         model.addAttribute("cohorts", CohortData.getAll());
         return "cohorts";
     }
+     */
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public String displayAddCohortForm(Model model){
@@ -23,11 +25,14 @@ public class CohortController {
         return"cohorts";
     }
 
+    /*
     @RequestMapping(value="",method=RequestMethod.POST)
     public String processAddCohortForm(@ModelAttribute Cohort newCohort){
         CohortData.add(newCohort);
         return "redirect:";
     }
 
+
+     */
 
 }
