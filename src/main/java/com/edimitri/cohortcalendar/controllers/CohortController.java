@@ -1,12 +1,8 @@
 package com.edimitri.cohortcalendar.controllers;
 
-import com.edimitri.cohortcalendar.models.CohortData;
-import com.edimitri.cohortcalendar.models.Example;
-import com.edimitri.cohortcalendar.models.ExampleData;
-import com.edimitri.cohortcalendar.models.WebDevCohort;
+import com.edimitri.cohortcalendar.models.Cohort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +24,7 @@ public class CohortController {
     }
 
     @RequestMapping(value="",method=RequestMethod.POST)
-    public String processAddCohortForm(@ModelAttribute WebDevCohort newCohort){
+    public String processAddCohortForm(@ModelAttribute Cohort newCohort){
         CohortData.add(newCohort);
         return "redirect:";
     }
