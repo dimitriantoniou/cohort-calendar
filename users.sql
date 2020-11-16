@@ -1,4 +1,3 @@
-
 use cohort_calendar_db;
 
 INSERT INTO users(email, first_name, is_admin, last_name, password)
