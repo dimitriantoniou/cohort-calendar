@@ -1,4 +1,7 @@
 package com.edimitri.cohortcalendar.repositories;
 
-public class CohortRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CohortRepository extends JpaRepository {
+
 }
