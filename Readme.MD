@@ -59,9 +59,13 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - update cohort form to appropriate data inputs
 - fix sql file and seed holidays table
 - fix sql file seed cohorts table
-- create table for program type 
-- create table for campus
+- create db table for program type 
+- create db table for campus
 - ~~get navbar dropdown menu to work~~
+- fix spring security dependencies issue
+- implement sign up and login functionality with spring security
+- create login funcitonality with google 20ath
+- add email functionality using Spring EmailService
 
 
 ## Demo
