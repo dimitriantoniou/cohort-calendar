@@ -12,9 +12,10 @@ public class IndexController {
 
     @GetMapping(value="/about")
     public String about(){return "about";}
-
+/*
     @GetMapping(value="/login")
     public String login(){return"login";}
+*/
 
     @GetMapping(value="/calendars")
     public String calendars(){return"calendars";}
