@@ -27,6 +27,15 @@ public class User {
     private boolean isAdmin;
 
 
+    public User(){ }//empty constructor
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
     public User(int id, String username, String email, String firstName, String lastName, String password, boolean isAdmin) {
         //this();
         this.id=id;
@@ -37,14 +46,8 @@ public class User {
         this.password=password;
         this.isAdmin=isAdmin;
     }
-    public User(){ }
 
-    public User(User copy) {
-        id = copy.id;
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -91,6 +94,22 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
 

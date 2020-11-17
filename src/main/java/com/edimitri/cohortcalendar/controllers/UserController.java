@@ -8,19 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-//import org.springframework.security.core.context.SecurityContextHolder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-
-
 @Controller
 public class UserController {
-
-    private Users users;
+    private final UserRepository userdao;
     private PasswordEncoder passwordEncoder;
-    private UserRepository userDao;
 
-    public UserController(Users users, PasswordEncoder passwordEncoder) {
-        this.users = users;
+    public UserController(UserRepository userDdao, PasswordEncoder passwordEncoder) {
+        this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -30,49 +24,17 @@ public class UserController {
         return "users/sign-up";
     }
 
-    @PostMapping("sign-up")
+    @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
-        users.save(user);
+        userDao.save(user);
         return "redirect:/login";
     }
 
+    public class PasswordEncoder {
+        public String encode(String password) {
+            return password;
+        }
+    }
 }
-/*
-    public UserController(UserRepository userDao){
-        this.userDao=userDao;
-    }
-/*
-    @GetMapping(value="/register")
-    public String showSignupForm(Model model){
-        model.addAttribute("user",new User());
-        return "register";
-    }
-
-
- */
-
-
-/*
-    @PostMapping("/register")
-    public String registerUser(@ModelAttribute User newUser, Model model) {
-        String email = newUser.getEmail();
-        String emailExists = userDao.findByEmail(email);
-
-        if (emailExists != null) {//if email user already exists (is not null)
-            validation.rejectValue("email", "user.email", email + " already exists in our records.");
-        }
-        if (validation.hasErrors()) {
-            model.addAttribute("errors", validation);
-            model.addAttribute("user", user);
-            return "register";
-        }
-        String hash=passwordEncoder.encode(user.getPassword());
-        user.setPassword(hash);
-        userDao.save(newUser);
-        return"Redirect:/";
-    }
-
-
- */

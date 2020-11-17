@@ -1,5 +1,6 @@
 package com.edimitri.cohortcalendar;
 
+import com.edimitri.cohortcalendar.controllers.UserController;
 import com.edimitri.cohortcalendar.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public UserController.PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
