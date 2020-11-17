@@ -54,19 +54,19 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create holiday model class with name, date, and hours properties~~
 - ~~create holiday constructor~~
 - create holidays view fragment
-- implement login functionality
-- add register page link
+- ~~implement login functionality~~
+- ~~add register page link~~
 - update cohort form to appropriate data inputs
 - fix sql file and seed holidays table
 - fix sql file seed cohorts table
 - create db table for program type 
 - create db table for campus
 - ~~get navbar dropdown menu to work~~
-- fix spring security dependencies issue
-- implement sign up and login functionality with spring security
+- ~~fix spring security dependencies issue~~
+- ~~implement sign up and login functionality with spring security~~
 - create login funcitonality with google 20ath
 - add email functionality using Spring EmailService
-
+- create PostMapping for login to profile page
 
 ## Demo
 Live demo can be viewed here:
