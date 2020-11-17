@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<title>Login</title>
+<title>Sign Up</title>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-<h1>Register</h1>
-<form>
-    <div class="form-group">
+<h1>Create an account</h1>
+<form th:action="@{/sign-up}" method="POST" th:object="@}user}">
+    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+        <label for="username">Username</label>
+        <input id="username" th:field="*{username}" />
+
+        <label for="email">Email</label>
+        <input id="email" th:field="*{email}" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" th:field="*{password}" />
+
+        <input value="Sign me up!" type="submit" />
+    </form>
+<footer th:replace="fragments :: footer"></footer>
+
+</body>
+</html>
+
+<!--
+<div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -25,7 +43,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<footer th:replace="fragments :: footer"></footer>
-
-</body>
-</html>
+-->

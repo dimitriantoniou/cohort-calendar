@@ -17,6 +17,9 @@ public class User {
     @Column(nullable=false,unique=true)
     private String email;
 
+    @Column(nullable=false,length=50,unique=true)
+    private String username;
+
     @Column(nullable=false)
     private String password;
 
@@ -24,18 +27,24 @@ public class User {
     private boolean isAdmin;
 
 
-    public User(int id, String email, String firstName, String lastName, String password, boolean isAdmin) {
-        this();
+    public User(int id, String username, String email, String firstName, String lastName, String password, boolean isAdmin) {
+        //this();
         this.id=id;
         this.firstName=firstName;
         this.lastName=lastName;
         this.email = email;
+        this.username=username;
         this.password=password;
         this.isAdmin=isAdmin;
     }
-    public User(){
-    }
+    public User(){ }
 
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
     public String getFirstName() {
         return firstName;
     }

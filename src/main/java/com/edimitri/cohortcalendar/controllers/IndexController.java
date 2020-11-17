@@ -32,5 +32,5 @@ public class IndexController {
     public String dal(){return"calendars/dal";}
 
     @GetMapping(value="/register")
-    public String register(){return"register";}
+    public String register(){return "sign-up";}
 }
