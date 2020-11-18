@@ -18,15 +18,15 @@ public class Cohort {
     private Date startDate;
 
     @Column(nullable=false)
-    private long programType;
+    private String programType;
 
     @Column(nullable=false)
-    private long campus;
+    private String campus;
 
     @Column(nullable=false)
     private int contactHours;
 
-    public Cohort(String name, Date startDate, long programType, long campus, int contactHours) {
+    public Cohort(String name, Date startDate, String programType, String campus, int contactHours) {
         this();
         this.name = name;
         this.startDate = startDate;
@@ -70,19 +70,19 @@ public class Cohort {
         this.id = id;
     }
 
-    public long getProgramType() {
+    public String getProgramType() {
         return programType;
     }
 
-    public void setProgramType(long programType) {
+    public void setProgramType(String programType) {
         this.programType = programType;
     }
 
-    public long getCampus() {
+    public String getCampus() {
         return campus;
     }
 
-    public void setCampus(long campus) {
+    public void setCampus(String campus) {
         this.campus = campus;
     }
 
