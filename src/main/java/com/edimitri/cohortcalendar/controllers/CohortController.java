@@ -1,44 +1,28 @@
 package com.edimitri.cohortcalendar.controllers;
 
+import com.edimitri.cohortcalendar.models.Cohort;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-//@RequestMapping(value="cohorts")
 public class CohortController {
 
-    private CohortRepository cohortDao;
+    private CohortRepository cohortRepository;
 
-    public CohortController(CohortRepository cohortDao){this.cohortDao=cohortDao;}
+    public CohortController(CohortRepository cohortRepository) {
+        this.cohortRepository = cohortRepository;
+    }
 
-    /*
-    @RequestMapping(value="")
-    public String cohort(Model model){
-        model.addAttribute("cohorts", CohortData.getAll());
+    @GetMapping("/cohorts")
+    public String showAddCohortForm(Model model) {
+        model.addAttribute("cohort", new Cohort());
         return "cohorts";
     }
-     */
 
-    /*
-    @RequestMapping(value="", method= RequestMethod.GET)
-    public String displayAddCohortForm(Model model){
-        model.addAttribute("title","Add Cohort");
-        return"cohorts";
+    @PostMapping("/cohorts")
+    public String saveCohort(@ModelAttribute Cohort cohort) {
+    return "cohorts";
     }
-
-     */
-    /*
-    @RequestMapping(value="",method=RequestMethod.POST)
-    public String processAddCohortForm(@ModelAttribute Cohort newCohort){
-        CohortData.add(newCohort);
-        return "redirect:";
-    }
-
-
-     */
-
 }

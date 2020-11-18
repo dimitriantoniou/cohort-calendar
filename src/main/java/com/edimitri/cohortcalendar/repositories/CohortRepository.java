@@ -4,5 +4,5 @@ import com.edimitri.cohortcalendar.models.Cohort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CohortRepository extends JpaRepository<Cohort,Long> {
-    Cohort findById(long id);
+    Cohort findByName(String name);
 }
