@@ -41,6 +41,13 @@
             <version>2.1.17.RELEASE</version>
             <type>maven-plugin</type>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- JPA Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
