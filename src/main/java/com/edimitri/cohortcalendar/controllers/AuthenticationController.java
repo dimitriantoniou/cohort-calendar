@@ -13,9 +13,9 @@ public class AuthenticationController {
         Authentication token = SecurityContextHolder.getContext().getAuthentication();
 
         // This means the user is not logged in
-        if (token instanceof AnonymousAuthenticationToken) return "login";
+        if (token instanceof AnonymousAuthenticationToken) return "users/login";
 
         // Redirect to the configured home page
-        return String.format("redirect:%s", "/users/profile");
+        return ("/users/profile");
     }
 }
