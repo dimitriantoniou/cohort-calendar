@@ -17,7 +17,6 @@ public class UserController {
     public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder=passwordEncoder;
-
     }
 
     @GetMapping("/sign-up")
