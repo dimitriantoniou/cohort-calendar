@@ -65,4 +65,9 @@ public class UserController {
     public String profile(){
         return "users/profile";
     }
+
+    @GetMapping("/users/all-users")
+    public String allUsers() {
+        return "users/all-users";
+    }
 }
