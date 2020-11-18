@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+    <h1>Holidays</h1>
+
+<form method="post" style="max-width:600px;">
+
+    <div class="form-group">
+        <label for="holidayName-field">Holiday Name</label>
+        <input class="form-control" type="text" id="holidayName-field" name="holidayName"/>
+    </div>
+
+    <div class="form-group">
+        <label for="holidayDate-field">Holiday date</label>
+        <input class="form-control" type="date" id="holidayDate-field" name="holidayDate"/>
+    </div>
+    <input type="submit" value="Add holiday"/>
+</form>
+    <footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

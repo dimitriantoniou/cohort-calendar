@@ -16,7 +16,10 @@ public class Holiday {
     @Column(nullable=false)
     private Date holidayDate;
 
+    public Holiday(){}
+
     public Holiday(String holidayName, Date holidayDate) {
+        this();
         this.holidayName = holidayName;
         this.holidayDate = holidayDate;
     }
