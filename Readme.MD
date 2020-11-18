@@ -53,20 +53,29 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~build footer fragment~~
 - ~~create holiday model class with name, date, and hours properties~~
 - ~~create holiday constructor~~
-- create holidays view fragment
 - ~~implement login functionality~~
 - ~~add register page link~~
-- update cohort form to appropriate data inputs
+- ~~update cohort form to appropriate data inputs~~
+- ~~get navbar dropdown menu to work~~
+- ~~fix spring security dependencies issue~~
+- ~~implement sign up and login functionality with spring security~~
+- ~~Programmatic login after registering a user~~
+- ~~Skip login page if user is authenticated~~
+- ~~add springboot devtools~~
+- ~~create PostMapping for login to profile page~~
+- add login funcitonality with google 20ath
+- add email functionality using Spring EmailService
 - fix sql file and seed holidays table
 - fix sql file seed cohorts table
 - create db table for program type 
 - create db table for campus
-- ~~get navbar dropdown menu to work~~
-- ~~fix spring security dependencies issue~~
-- ~~implement sign up and login functionality with spring security~~
-- create login funcitonality with google 20ath
-- add email functionality using Spring EmailService
-- create PostMapping for login to profile page
+- create holidays view fragment and form
+- finish holiday addition functionality
+- add 'all calendars' to calendars dropdown
+- build feature that hides login/logout depending on authenticated status
+- add scripts to individual calendar views for dropdown functionality
+
+
 
 ## Demo
 Live demo can be viewed here:
