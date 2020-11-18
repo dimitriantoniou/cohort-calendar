@@ -1,4 +1,4 @@
 use cohort_calendar_db;
 
-INSERT INTO holidays(holidayName, holidayDate)
-VALUES ('New Years', 1/1/2021);
+INSERT INTO holidays(holiday_name, holiday_date)
+VALUES ('New Years', 2021-01-01);

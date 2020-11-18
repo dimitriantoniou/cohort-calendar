@@ -27,7 +27,6 @@ public class HolidayController {
         return "holidays";
     }
 
-
     @PostMapping("/holidays")
     public String saveHoliday(@ModelAttribute Holiday holiday) {
         holidayRepository.save(holiday);
