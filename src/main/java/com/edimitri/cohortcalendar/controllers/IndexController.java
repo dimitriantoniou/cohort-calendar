@@ -18,7 +18,7 @@ public class IndexController {
 */
 
     @GetMapping(value="/calendars")
-    public String calendars(){return"calendars";}
+    public String calendars(){return"calendars/calendars";}
 
     @GetMapping(value="/calendars/web-dev")
     public String webDev(){return"calendars/web-dev";}
