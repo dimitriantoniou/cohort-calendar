@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class CohortController {
 
@@ -15,10 +17,18 @@ public class CohortController {
         this.cohortRepository = cohortRepository;
     }
 
+
+    @GetMapping("/cohorts")
+    public String cohortsIndex(Model model) {
+        List<Cohort> cohorts = cohortRepository.findAll();
+        model.addAttribute("cohorts", cohorts);
+        return "cohorts/cohorts";
+    }
+    /*
     @GetMapping("/cohorts")
     public String showAddCohortForm() {
         return "cohorts/cohorts";
-    }
+    */
 
     @GetMapping("/cohorts/add")
     public String showAddCohortForm(Model model) {
@@ -26,9 +36,9 @@ public class CohortController {
         return "cohorts/add";
     }
 
-    @PostMapping("/cohorts")
+    @PostMapping("/cohorts/add")
     public String saveCohort(@ModelAttribute Cohort cohort) {
         cohortRepository.save(cohort);
-        return "redirect:cohorts/cohorts";
+        return "redirect:/cohorts";
     }
 }
