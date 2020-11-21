@@ -65,17 +65,29 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create PostMapping for login to profile page~~
 - add login funcitonality with google 20ath
 - add email functionality using Spring EmailService
-- fix sql file and seed holidays table
-- fix sql file seed cohorts table
+- ~~fix sql file and seed holidays table~~
+- ~~fix sql file seed cohorts table~~
 - create db table for program type 
 - create db table for campus
-- create holidays view fragment and form
+- ~~create holidays view fragment and form~~
 - finish holiday addition functionality
-- add 'all calendars' to calendars dropdown
+- ~~display data from MySQL holidays table to a table on holidays view~~
+- ~~display data from mysql cohorts to cohorts view table~~
+- fix add cohort feature in CohortController
+- fix add holiday feature in HolidayController
+- ~~add 'all calendars' to calendars dropdown~~
 - build feature that hides login/logout depending on authenticated status
-- add scripts to individual calendar views for dropdown functionality
-
-
+- ~~add scripts to individual calendar views for dropdown functionality~~
+- ~~replace holidays view 'add holiday' form with an 'edit holidays' button~~
+- ~~build 'holidays/edit' view and method~~
+- ~~replace cohorts view 'add cohort' form with an 'edit cohorts' button~~
+- ~~build 'cohorts/edit' view and method~~
+- fix date by removing time within date column in holidays and cohorts tables
+- ~~add a calendar to the all calendars view~~
+- fix script to populate calendar on all calendars view
+- add "delete" and "modify" features to holidays/edit
+- add "delete" and "modify" features to cohorts/edit
+- add js calendar to all calendar views
 
 ## Demo
 Live demo can be viewed here:
