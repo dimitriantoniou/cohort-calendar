@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 public class HolidayController {
 
@@ -20,17 +22,26 @@ public class HolidayController {
         this.holidayRepository = holidayRepository;
     }
 
-
+    @GetMapping("/holidays")
+    public String cohortsIndex(Model model) {
+        List<Holiday> holidays = holidayRepository.findAll();
+        model.addAttribute("holidays", holidays);
+        return "holidays";
+    }
+/*
     @GetMapping("/holidays")
     public String showAddHolidayForm(Model model) {
-        model.addAttribute("holiday",new Holiday());
+        model.addAttribute("holiday", new Holiday());
         return "holidays";
     }
 
+
+ */
     @PostMapping("/holidays")
     public String saveHoliday(@ModelAttribute Holiday holiday) {
         holidayRepository.save(holiday);
-        return "redirect:holidays";
+        return "redirect:/holidays";
     }
 }
+
 
