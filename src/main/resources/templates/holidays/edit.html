@@ -19,17 +19,6 @@
     </div>
     <input type="submit" value="Add holiday"/>
 </form>
-<hr>
-<table class="table">
-    <tr>
-        <th>Holiday</th>
-        <th>Date</th>
-    </tr>
-    <tr th:each="holiday : ${holidays}">
-        <td th:text="${holiday.holidayName}"></td>
-        <td th:text="${holiday.holidayDate}"></td>
-    </tr>
-</table>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

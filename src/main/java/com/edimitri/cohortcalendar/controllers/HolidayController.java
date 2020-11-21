@@ -2,14 +2,12 @@ package com.edimitri.cohortcalendar.controllers;
 
 import com.edimitri.cohortcalendar.models.Cohort;
 import com.edimitri.cohortcalendar.models.Holiday;
-import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import com.edimitri.cohortcalendar.repositories.HolidayRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -26,7 +24,7 @@ public class HolidayController {
     public String cohortsIndex(Model model) {
         List<Holiday> holidays = holidayRepository.findAll();
         model.addAttribute("holidays", holidays);
-        return "holidays";
+        return "holidays/holidays";
     }
 /*
     @GetMapping("/holidays")
@@ -37,6 +35,11 @@ public class HolidayController {
 
 
  */
+    @GetMapping("/holidays/edit")
+    public String showEditHolidayForm(Model model){
+        model.addAttribute("cohort",new Cohort());
+        return "holidays/edit";
+    }
     @PostMapping("/holidays")
     public String saveHoliday(@ModelAttribute Holiday holiday) {
         holidayRepository.save(holiday);

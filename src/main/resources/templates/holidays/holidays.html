@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+    <h1>Holidays</h1>
+<a class="btn btn-primary" href="/holidays/edit" role="button">Edit Holidays</button></a>
+<table class="table">
+    <tr>
+        <th>Holiday</th>
+        <th>Date</th>
+    </tr>
+    <tr th:each="holiday : ${holidays}">
+        <td th:text="${holiday.holidayName}"></td>
+        <td th:text="${holiday.holidayDate}"></td>
+    </tr>
+</table>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
