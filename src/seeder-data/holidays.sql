@@ -1,4 +1,4 @@
 use cohort_calendar_db;
 
 INSERT INTO holidays(holiday_name, holiday_date)
-VALUES ('New Years', '2021-01-01');
+VALUES ('MLK Day','2021-01-18'),('Presidents Day','2021-2-15'),('Good Friday','2021-04-02'),('Memorial Day','2021-05-31'),('Independence Day 1','2021-07-02'),('Independence Day 2','2021-07-05'),('Labor Day','2021-09-06'),('Indigenous Peoples Day','2021-10-11'),('Veterans Day','2021-11-11'),('Thanksgiving Break Day 1','2021-11-24'),('Thanksgiving Break Day 2','2021-11-25'),('Thanksgiving Break Day 3','2021-11-26'),('Winter Break Day 1','2021-12-20'),('Winter Break Day 2','2021-12-21'),('Winter Break Day 3','2021-12-22'),('Winter Break Day 4','2021-12-23'),('Winter Break Day 5','2021-12-24'),('Winter Break Day 6','2021-12-27'),('Winter Break Day 7','2021-12-28'),('Winter Break Day 8','2021-12-29'),('Winter Break Day 9','2021-12-30'),('Winter Break Day 10','2021-12-31');
