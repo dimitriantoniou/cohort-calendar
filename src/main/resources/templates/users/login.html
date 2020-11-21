@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <title>Log In</title>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-<h1>Log In</h1>
+<h1 class="form-login-heading">Log In</h1>
 
 <div th:if="${param.error}">
     Invalid Username and Password.
@@ -13,9 +14,9 @@
     You have been logged out.
 </div>
 
-<form th:action="@{/login}" method="post">
+<form th:action="@{/login}" method="post" class="form-login">
     <label for="username">Username</label>
-    <input id="username" name="username" type="text" />
+    <input id="username" name="username" type="username" />
     <label for="password">Password</label>
     <input id="password" name="password" type="password" />
     <input type="submit" value="Log In" />
