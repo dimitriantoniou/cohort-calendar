@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+>
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -8,7 +10,7 @@
 </head>
 <body>
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Codeup</a>
+        <a class="navbar-brand" href="/"><img src="/img/logo_@2x.png" alt="Codeup"></a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/cohorts">Cohorts</a>
@@ -28,19 +30,26 @@
                     <a class="dropdown-item" href="/calendars/dal">DAL</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
                 <a class="nav-link" href="/login">Login</a>
             </li>
-            <li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
                     <button class="btn-link btn" style="margin-top: 8px">Logout</button>
                 </form>
             </li>
         </ul>
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+        <!-- hidden serach form
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        -->
 </nav>
 <footer th:fragment="footer">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
