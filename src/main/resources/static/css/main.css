@@ -1,0 +1,585 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700);
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Press+Start+2P|Titillium+Web&display=swap');
+
+/* primary styles */
+
+body {
+    background-color: #181d32;
+    /*color: #6f736a;*/
+    font-family: 'Crimson Text', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+.white {
+    background-color: #fff;
+    padding-top: 40px;
+    border-top: 1px solid #e5e5e5;
+
+}
+
+.green-legend {
+    color: #779c48;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+h1, h3, h4, h5 {
+    color: #36362f;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {
+    font-size: 2.125em;
+    font-weight: 100;
+    line-height: 1.32352941;
+    /*margin-bottom: 0.5em;*/
+}
+
+h2 {
+    color: #779c48;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 0.30em;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1em;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.5625;
+    margin-bottom: 0.9375em;
+}
+/*
+h4.course {
+    color: #000;
+    font-size: 1.26em;
+    font-weight: 400;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 0.52em;
+}
+*/
+
+h5 {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5625;
+    margin-bottom: 0.625em;
+}
+
+h6 {
+    color: #a2a59f;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.5625;
+    margin-bottom: 0.625em;
+}
+/*
+h6.grad-date {
+    color: #000;
+    font-size: 1.0em;
+    font-weight: 700;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 1.385em;
+}
+*/
+p.lead {
+    font-family: 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.25em;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 1.5em;
+}
+
+hr.divider {
+    margin: 20px auto;
+    border-top: 1px solid #779c48;
+}
+
+.centered {
+    text-align: center;
+}
+
+.container {
+    min-height: 30px;
+}
+
+.container.padded {
+    padding: 30px 15px;
+}
+
+.container.bordered {
+    border: 1px solid #c0c0c0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.social {
+    font-size: 1.8em;
+}
+
+.social:hover {
+    text-decoration: none;
+}
+
+.cc-form-controls {
+    margin-top: 10px;
+}
+
+.cc-form-controls input {
+    display: inline;
+    width: 80px;
+}
+/*
+.student-photo {
+    max-height: 280px;
+    max-width: 280px;
+}
+*/
+.toolbar {
+    padding-bottom: 2%;
+}
+
+.yellow-underscore {
+    color: #ffc20e;
+}
+
+.red-underscore {
+    color: #e9573f;
+}
+.green-underscore {
+    color: #4e5e33;
+}
+/*
+.student-name {
+    color: #4e5e33;
+}
+*/
+/* youtube video embed responsiveness: http://stackoverflow.com/questions/7737557 */
+
+.auto-resizable-iframe {
+    max-width: 640px;
+    max-height: 480px;
+    margin: 0px auto;
+}
+
+.auto-resizable-iframe > div {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0px;
+}
+
+.auto-resizable-iframe iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+/* pagination overrides */
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    background-color: #779c48;
+    border-color: #779c48;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #779c48;
+}
+
+/* campaign thumbnail box styles */
+
+.campaign-status {
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+.status-initiated, .status-drafted {
+    background-color: #565656;
+}
+
+.status-submitted {
+    background-color: #7345a9;
+}
+
+.status-live {
+    background-color: #567092;
+}
+
+.status-funded {
+    background-color: #779c48;
+}
+
+.status-expired {
+    background-color: #973a3a;
+}
+
+/* pledge box styles */
+
+.pledge-box {
+    padding: 15px;
+    border-bottom: 1px solid #c0c0c0;
+    background-color: #f2f5ef;
+}
+
+.pledge-box:last-child {
+    border-bottom: none;
+}
+
+/* navbar styles */
+.navbar {
+    height: auto;
+}
+.navbar-brand {
+    width: 8em;
+    line-height: 50%;
+}
+
+.navbar-brand img {
+    max-width: 100%;
+}
+
+.navbar-nav>li>a {
+    line-height: 40px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar-nav li a:hover {
+    /*color: #779c48 !important;*/
+    font-family: 'Titillium Web', sans-serif;
+    text-decoration: underline;
+    text-decoration-color: #ffc20e;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+        line-height: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-brand {
+        width: 7.5em;
+        /*line-height: 30px;*/
+        margin-top: -10px;
+    }
+}
+
+/* footer styles */
+
+footer {
+    padding: 40px 0;
+    color: #999;
+    background-color: #181d32;
+}
+
+footer .logo {
+    width: 8em;
+    margin-bottom: 10px;
+}
+
+footer h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+footer ul {
+    margin-top: 0;
+    list-style: none;
+    padding-left: 5px;
+}
+
+footer li {
+    padding: 5px 0;
+}
+
+footer li a {
+    color: #fff;
+}
+
+footer li a:hover,
+footer li a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p {
+    color: #fff;
+}
+
+footer h3 {
+    color: #fff;
+}
+
+#footer-top {
+    width: 100%;
+    background-color: #1f2542;
+    margin: 0 auto;
+    padding: 1% 0;
+    color: #fff;
+}
+/* main page superhero */
+
+.superhero {
+    background-attachment: scroll;
+    background-color: #4e5b31;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 30px;
+    color: #fff;
+    margin-top: -20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.superhero h1 {
+    color: #b9cf9e;
+    font-size: 4em;
+}
+
+.superhero p {
+    color: #d6dbd0;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 0.6em;
+}
+
+/* login form: http://getbootstrap.com/examples/signin/signin.css */
+
+.form-login {
+    max-width: 330px;
+    padding: 15px;
+    margin: 40px auto;
+}
+.form-login .form-login-heading,
+.form-login .checkbox {
+    margin-bottom: 10px;
+}
+.form-login .checkbox {
+    font-weight: normal;
+}
+.form-login .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-login .form-control:focus {
+    z-index: 2;
+}
+.form-login input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-login input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* button styles from: http://blog.koalite.com/bbg/ */
+.btn {
+    padding: 6px 6px;
+    font-family: 'Titillium Web', sans-serif;
+}
+.btn-purple {
+    color: #ffffff;
+    background-color: #7345a9;
+    border-color: #7345a9;
+}
+
+.btn-purple:hover,
+.btn-purple:focus,
+.btn-purple:active,
+.btn-purple.active,
+.open .dropdown-toggle.btn-purple {
+    color: #ffffff;
+    background-color: #49247A;
+    border-color: #7345a9;
+}
+
+.btn-purple:active,
+.btn-purple.active,
+.open .dropdown-toggle.btn-purple {
+    background-image: none;
+}
+
+.btn-purple.disabled,
+.btn-purple[disabled],
+fieldset[disabled] .btn-purple,
+.btn-purple.disabled:hover,
+.btn-purple[disabled]:hover,
+fieldset[disabled] .btn-purple:hover,
+.btn-purple.disabled:focus,
+.btn-purple[disabled]:focus,
+fieldset[disabled] .btn-purple:focus,
+.btn-purple.disabled:active,
+.btn-purple[disabled]:active,
+fieldset[disabled] .btn-purple:active,
+.btn-purple.disabled.active,
+.btn-purple[disabled].active,
+fieldset[disabled] .btn-purple.active {
+    background-color: #7345a9;
+    border-color: #7345a9;
+}
+
+.btn-purple .badge {
+    color: #7345a9;
+    background-color: #ffffff;
+}
+
+.btn-green {
+    color: #ffffff;
+    background-color: #779c48;
+    border-color: #4B5945;
+}
+
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active,
+.open .dropdown-toggle.btn-green {
+    color: #ffffff;
+    background-color: #305C33;
+    border-color: #4B5945;
+}
+
+.btn-green:active,
+.btn-green.active,
+.open .dropdown-toggle.btn-green {
+    background-image: none;
+}
+
+.btn-green.disabled,
+.btn-green[disabled],
+fieldset[disabled] .btn-green,
+.btn-green.disabled:hover,
+.btn-green[disabled]:hover,
+fieldset[disabled] .btn-green:hover,
+.btn-green.disabled:focus,
+.btn-green[disabled]:focus,
+fieldset[disabled] .btn-green:focus,
+.btn-green.disabled:active,
+.btn-green[disabled]:active,
+fieldset[disabled] .btn-green:active,
+.btn-green.disabled.active,
+.btn-green[disabled].active,
+fieldset[disabled] .btn-green.active {
+    background-color: #779c48;
+    border-color: #4B5945;
+}
+
+.btn-green .badge {
+    color: #779c48;
+    background-color: #ffffff;
+}
+
+.page-title h1 {
+    font-size: 3em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.page-title p {
+    color: #36362f;
+    font-weight: 300;
+    margin-bottom: 0;
+    margin-top: 1.875em;
+}
+
+/*.page-title {*/
+/*padding-bottom: 7%;*/
+/*}*/
+
+a, a:visited, a:hover {
+    color: #7345a9;
+    text-decoration: none;
+}
+
+a.btn  {
+    color: white;
+}
+
+a.btn-default  {
+    color: black;
+}
+#mainBody .btn {
+    background-image: none;
+}
+#mainBody .btn-default-cus{
+    background-image: none;
+    font-weight: lighter;
+}
+
+#mainBody .row {
+    padding-top: 0;
+}
+a#sw-filter.btn,
+a#ds-filter.btn{
+    font-family: 'Titillium Web', sans-serif;
+    background-color: #181d32;
+    border: 1px solid #fff;
+    margin: 10px;
+    color: #fff;
+    padding: .5em 1.75em;
+    /*font-weight: lighter;*/
+
+}
+#filter-buttons {
+    padding-bottom: 2%;
+}
+#cohort-info {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media (max-width: 992px) {
+    #mainBody #cohort-info h1,h2,h3,h4,h5,h6 {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+}
+div#filter>a {
+    margin: 0 auto;
+}
+
+.thumbnail p {
+    margin: 0 55px;
+}
+/*
+#mainBody #cohort_id {
+    width: auto;
+}
+*/
+.btn-group .btn:active {
+    background-color: #181d32;
+    color: #fff;
+}
