@@ -4,8 +4,11 @@
 /* primary styles */
 
 body {
-    background-color: #181d32;
-    /*color: #6f736a;*/
+    background-color: white;
+    /*
+    blue: #181d32
+    green: #6f736a;
+    */
     font-family: 'Crimson Text', serif;
     font-style: normal;
     font-weight: 400;
