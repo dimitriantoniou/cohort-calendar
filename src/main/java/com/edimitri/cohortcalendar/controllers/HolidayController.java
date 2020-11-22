@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -31,7 +33,7 @@ public class HolidayController {
 
     @GetMapping("/holidays/add")
     public String showAddHolidayForm(Model model){
-        model.addAttribute("cohort",new Cohort());
+        model.addAttribute("holiday",new Holiday());
         return "holidays/add";
     }
     @PostMapping("/holidays/add")
@@ -40,14 +42,17 @@ public class HolidayController {
         return "redirect:/holidays";
     }
 
-    @GetMapping("/holidays/edit")
-    public String showEditHolidayForm(Model model){
-        model.addAttribute("cohort",new Cohort());
+    @GetMapping("/holidays/edit/{id}")
+    public String showUpdateHolidayForm(@PathVariable("id") long id, Model model){
+        Holiday holiday=holidayRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Invalid holiday id: " +id));
+        model.addAttribute("holiday",holiday);
         return "holidays/edit";
     }
-    @PostMapping("/holidays/edit")
-    public String saveHoliday(@ModelAttribute Holiday holiday) {
+    @PostMapping("/holidays/edit/{id}")
+    public String updateHoliday(@PathVariable("id") long id, @Valid Holiday holiday, Model model){
         holidayRepository.save(holiday);
+        model.addAttribute("holidays",holidayRepository.findAll());
         return "redirect:/holidays";
     }
 
