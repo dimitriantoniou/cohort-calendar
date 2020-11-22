@@ -13,6 +13,7 @@
         <th>Program Type</th>
         <th>Campus</th>
         <th>Contact Hours</th>
+        <th>Graduation Date</th>
     </tr>
     <tr th:each="cohort : ${cohorts}">
         <td th:text="${cohort.name}"></td>
@@ -20,6 +21,8 @@
         <td th:text="${cohort.programType}"></td>
         <td th:text="${cohort.campus}"></td>
         <td th:text="${cohort.contactHours}"></td>
+        <td><a th:href="@{/edit/{id}(id=${cohort.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${cohort.id})}">Delete</a></td>
     </tr>
 </table>
 <hr>
