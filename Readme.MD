@@ -33,13 +33,14 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 #### As an admin, I can:
 - manage users (Add, Delete, Update)
 - manager user permissions
+- manage campuses
+- manage programs
 
 #### Feature List
 - register users and login auth
-- input a start date and contact hours
 - assign week-day values
 - assign holidays and no-class days
-- output a graduation date
+- input a start date and contact hours to output graduation
 - give users permissions to edit different calendars
 - moderate comments, including hiding/deleting
 
@@ -49,7 +50,6 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create a cohort form view~~
 - ~~create a CohortData class to store temporary data~~
 - ~~create a cohortcontroller~~
-- ~~build db design~~
 - ~~build footer fragment~~
 - ~~create holiday model class with name, date, and hours properties~~
 - ~~create holiday constructor~~
@@ -65,10 +65,6 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create PostMapping for login to profile page~~
 - add login funcitonality with google 20ath
 - add email functionality using Spring EmailService
-- ~~fix sql file and seed holidays table~~
-- ~~fix sql file seed cohorts table~~
-- create db table for program type 
-- create db table for campus
 - ~~create holidays view fragment and form~~
 - finish holiday addition functionality
 - ~~display data from MySQL holidays table to a table on holidays view~~
@@ -89,6 +85,15 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - add "delete" and "modify" features to cohorts/edit
 - add js calendar to all calendar views
 - get logo to show up in nav bar
+- restrict edit views to authenticated users
+#### Database
+- ~~add campuses table and seed~~
+- ~~build db design~~
+- ~~fix sql file and seed holidays table~~
+- ~~fix sql file seed cohorts table~~
+- create db table for program type 
+- ~~create db table for campus~~
+
 
 #### Calculating end date
 - ~~assign hours values to days of the week~~
@@ -99,6 +104,3 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 
 ## Demo
 Live demo can be viewed here:
-
-## Database Design
-

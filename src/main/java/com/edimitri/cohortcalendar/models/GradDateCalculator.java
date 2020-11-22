@@ -7,9 +7,10 @@ import java.util.HashMap;
 public class GradDateCalculator {
 
     public static void main(String[] args) {
-
+        //check if the passed date passed is on the holidays list; if it is, skip it; if it's not, pass it in to the LocalDate
         //get the hours value for the date that is being passed in
         LocalDate ld = LocalDate.of(2021, 01, 01);
+
         java.time.DayOfWeek dayOfWeek = ld.getDayOfWeek();
         double dayHours;
         switch (dayOfWeek) {
