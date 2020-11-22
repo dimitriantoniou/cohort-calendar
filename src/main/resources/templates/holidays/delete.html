@@ -4,22 +4,17 @@
 
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-    <h1>Holidays</h1>
-<a class="btn btn-primary" href="/holidays/add" role="button">Add Holiday</button></a>
-<a class="btn btn-primary" href="/holidays/edit" role="button">Edit Holiday</button></a>
-<a class="btn btn-primary" href="/holidays/delete" role="button">Delete Holiday</button></a>
-
+    <h1>Delete Holidays</h1>
 <table class="table">
     <tr>
-        <th>Holiday Name</th>
-        <th>Holiday Date</th>
+        <th>Holiday</th>
+        <th>Date</th>
     </tr>
     <tr th:each="holiday : ${holidays}">
         <td th:text="${holiday.holidayName}"></td>
         <td th:text="${holiday.holidayDate}"></td>
     </tr>
 </table>
-
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

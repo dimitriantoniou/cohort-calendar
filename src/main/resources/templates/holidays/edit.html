@@ -4,20 +4,21 @@
 
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-    <h1>Holidays</h1>
+    <h1>Edit Holidays</h1>
 
-<form method="post" style="max-width:600px;">
+
+<form th:action="@{edit}" method="POST" th:object="${holiday}" style="max-width:600px;">
 
     <div class="form-group">
         <label for="holidayName-field">Holiday Name</label>
-        <input class="form-control" type="text" id="holidayName-field" name="holidayName"/>
+        <input class="form-control" id="holidayName-field" type="text" th:field="*{holidayName}" placeholder="Enter the holiday name"/>
     </div>
 
     <div class="form-group">
         <label for="holidayDate-field">Holiday date</label>
-        <input class="form-control" type="date" id="holidayDate-field" name="holidayDate"/>
+        <input class="form-control" type="date" id="holidayDate-field" th:field="*{holidayDate}" placeholder="Enter holiday date"/>
     </div>
-    <input type="submit" value="Add holiday"/>
+    <input type="submit" class= "btn-btn-primary" value="Update holiday"/>
 </form>
 
 <footer th:replace="fragments :: footer"></footer>
