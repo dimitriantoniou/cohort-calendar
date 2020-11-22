@@ -6,19 +6,29 @@
 <nav th:replace="fragments :: navbar"></nav>
     <h1>Holidays</h1>
 <a class="btn btn-primary" href="/holidays/add" role="button">Add Holiday</button></a>
-<a class="btn btn-primary" href="/holidays/edit" role="button">Edit Holiday</button></a>
-<a class="btn btn-primary" href="/holidays/delete" role="button">Delete Holiday</button></a>
 
-<table class="table">
-    <tr>
-        <th>Holiday Name</th>
-        <th>Holiday Date</th>
-    </tr>
-    <tr th:each="holiday : ${holidays}">
-        <td th:text="${holiday.holidayName}"></td>
-        <td th:text="${holiday.holidayDate}"></td>
-    </tr>
-</table>
+<div th:switch="${holidays}">
+    <h2 th:case="null">No holidays yet!</h2>
+    <div th:case="*">
+        <h2>Holidays</h2>
+        <table class="table">
+            <thead>
+                <tr>
+            <th>Holiday Name</th>
+            <th>Holiday Date</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr th:each="holiday : ${holidays}">
+                <td th:text="${holiday.holidayName}"></td>
+                <td th:text="${holiday.holidayDate}"></td>
+                <td><a th:href="@{/edit/{id}(id=${holiday.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/{id}(id=${holiday.id})}">Delete</a></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

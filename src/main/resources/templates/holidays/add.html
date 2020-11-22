@@ -7,18 +7,18 @@
     <h1>Add Holidays</h1>
 
 
-<form method="post" style="max-width:600px;">
+<form action="#" method="post" th:action="@{/holidays/add}" th:object="${holiday}" style="max-width:600px;">
 
     <div class="form-group">
         <label for="holidayName-field">Holiday Name</label>
-        <input class="form-control" type="text" id="holidayName-field" name="holidayName"/>
+        <input class="form-control" type="text" th:field="*{holidayName-field}" id="holidayName-field" placeholder="Holiday Name"/>
     </div>
 
     <div class="form-group">
-        <label for="holidayDate-field">Holiday date</label>
-        <input class="form-control" type="date" id="holidayDate-field" name="holidayDate"/>
+        <label for="holidayDate-field">Holiday Date</label>
+        <input class="form-control" type="date" th:field="*{holidayDate-field}" id="holidayDate-field" placeholder="Holiday Date"/>
     </div>
-    <input type="submit" value="Add holiday"/>
+    <input type="submit" value="Add Holiday"/>
 </form>
 
 <footer th:replace="fragments :: footer"></footer>

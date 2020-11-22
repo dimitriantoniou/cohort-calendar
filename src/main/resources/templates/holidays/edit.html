@@ -7,16 +7,18 @@
     <h1>Edit Holidays</h1>
 
 
-<form th:action="@{edit}" method="POST" th:object="${holiday}" style="max-width:600px;">
+<form th:action="@{edit}" th:action="@{/holidays/edit}" th:object="${holiday}" method="POST" style="max-width:600px;">
 
     <div class="form-group">
         <label for="holidayName-field">Holiday Name</label>
         <input class="form-control" id="holidayName-field" type="text" th:field="*{holidayName}" placeholder="Enter the holiday name"/>
+        <span th:if="${#fields.hasErrors('holidayName')}" th:errors="*{holidayName}"></span>
     </div>
 
     <div class="form-group">
         <label for="holidayDate-field">Holiday date</label>
         <input class="form-control" type="date" id="holidayDate-field" th:field="*{holidayDate}" placeholder="Enter holiday date"/>
+        <span th:if="${#fields.hasErrors('holidayDate')}" th:errors="*{holidayDate}"></span>
     </div>
     <input type="submit" class= "btn-btn-primary" value="Update holiday"/>
 </form>
