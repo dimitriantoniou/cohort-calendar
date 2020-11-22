@@ -30,13 +30,13 @@ public class CohortController {
         return "cohorts/cohorts";
     */
 
-    @GetMapping("/cohorts/edit")
+    @GetMapping("/cohorts/add")
     public String showAddCohortForm(Model model) {
         model.addAttribute("cohort", new Cohort());
-        return "cohorts/edit";
+        return "cohorts/add";
     }
 
-    @PostMapping("/cohorts/edit")
+    @PostMapping("/cohorts/add")
     public String saveCohort(@ModelAttribute Cohort cohort) {
         cohortRepository.save(cohort);
         return "redirect:/cohorts";
