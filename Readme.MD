@@ -90,6 +90,13 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - add js calendar to all calendar views
 - get logo to show up in nav bar
 
+#### Calculating end date
+- ~~assign hours values to days of the week~~
+- ~~given a date, determine the day of the week using LocalDate and assign appropriate hours value~~
+- start on the startDate
+- add hours value to totalHours
+- move to next date, while totalHours<contactHours (stop when we hit ContactHours)  
+
 ## Demo
 Live demo can be viewed here:
 
