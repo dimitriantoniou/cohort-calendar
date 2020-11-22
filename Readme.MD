@@ -66,7 +66,6 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - add login funcitonality with google 20ath
 - add email functionality using Spring EmailService
 - ~~create holidays view fragment and form~~
-- finish holiday addition functionality
 - ~~display data from MySQL holidays table to a table on holidays view~~
 - ~~display data from mysql cohorts to cohorts view table~~
 - fix add cohort feature in CohortController
@@ -81,7 +80,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - fix date by removing time within date column in holidays and cohorts tables
 - ~~add a calendar to the all calendars view~~
 - ~~implement fullcalendar~~
-- add "delete" and "modify" features to holidays/edit
+- add "delete" and "edit" features to holidays/edit
 - add "delete" and "modify" features to cohorts/edit
 - add js calendar to all calendar views
 - get logo to show up in nav bar
