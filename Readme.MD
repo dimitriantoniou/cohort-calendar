@@ -76,7 +76,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - fix add cohort feature in CohortController
 - fix add holiday feature in HolidayController
 - ~~add 'all calendars' to calendars dropdown~~
-- build feature that hides login/logout depending on authenticated status
+- ~~build feature that hides login/logout depending on authenticated status~~
 - ~~add scripts to individual calendar views for dropdown functionality~~
 - ~~replace holidays view 'add holiday' form with an 'edit holidays' button~~
 - ~~build 'holidays/edit' view and method~~
@@ -84,10 +84,11 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~build 'cohorts/edit' view and method~~
 - fix date by removing time within date column in holidays and cohorts tables
 - ~~add a calendar to the all calendars view~~
-- fix script to populate calendar on all calendars view
+- ~~implement fullcalendar~~
 - add "delete" and "modify" features to holidays/edit
 - add "delete" and "modify" features to cohorts/edit
 - add js calendar to all calendar views
+- get logo to show up in nav bar
 
 ## Demo
 Live demo can be viewed here:
