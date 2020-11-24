@@ -9,17 +9,18 @@
 <table class="table">
     <tr>
         <th>Cohort Name</th>
-        <th>Start Date</th>
         <th>Program Type</th>
         <th>Campus</th>
-        <th>Contact Hours</th>
+        <th>Start Date</th>
         <th>Graduation Date</th>
+        <th>Contact Hours</th>
     </tr>
     <tr th:each="cohort : ${cohorts}">
         <td th:text="${cohort.name}"></td>
-        <td th:text="${cohort.startDate}"></td>
         <td th:text="${cohort.programType}"></td>
         <td th:text="${cohort.campus}"></td>
+        <td th:text="${cohort.startDate}"></td>
+        <!--<td th:text="${cohort.gradDate}"></td>-->
         <td th:text="${cohort.contactHours}"></td>
         <td><a th:href="@{/edit/{id}(id=${cohort.id})}">Edit</a></td>
         <td><a th:href="@{/delete/{id}(id=${cohort.id})}">Delete</a></td>

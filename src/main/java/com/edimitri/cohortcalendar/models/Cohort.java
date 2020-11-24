@@ -17,6 +17,9 @@ public class Cohort {
     @Column(nullable=false)
     private Date startDate;
 
+    @Column
+    private Date gradDate;
+
     @Column(nullable=false)
     private String programType;
 
@@ -26,13 +29,14 @@ public class Cohort {
     @Column(nullable=false)
     private int contactHours;
 
-    public Cohort(String name, Date startDate, String programType, String campus, int contactHours) {
+    public Cohort(String name, Date startDate, Date gradDate, String programType, String campus, int contactHours) {
         this();
         this.name = name;
         this.startDate = startDate;
         this.programType = programType;
         this.campus = campus;
         this.contactHours = contactHours;
+        this.gradDate=gradDate;
     }
 
     public Cohort(){
