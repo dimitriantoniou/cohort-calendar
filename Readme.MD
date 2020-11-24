@@ -63,13 +63,9 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~Skip login page if user is authenticated~~
 - ~~add springboot devtools~~
 - ~~create PostMapping for login to profile page~~
-- add login funcitonality with google 20ath
-- add email functionality using Spring EmailService
 - ~~create holidays view fragment and form~~
 - ~~display data from MySQL holidays table to a table on holidays view~~
 - ~~display data from mysql cohorts to cohorts view table~~
-- fix add cohort feature in CohortController
-- fix add holiday feature in HolidayController
 - ~~add 'all calendars' to calendars dropdown~~
 - ~~build feature that hides login/logout depending on authenticated status~~
 - ~~add scripts to individual calendar views for dropdown functionality~~
@@ -77,28 +73,40 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~build 'holidays/edit' view and method~~
 - ~~replace cohorts view 'add cohort' form with an 'edit cohorts' button~~
 - ~~build 'cohorts/edit' view and method~~
-- fix date by removing time within date column in holidays and cohorts tables
 - ~~add a calendar to the all calendars view~~
 - ~~implement fullcalendar~~
-- add "delete" and "edit" features to holidays/edit
-- add "delete" and "modify" features to cohorts/edit
-- add js calendar to all calendar views
-- get logo to show up in nav bar
+- ~~add js calendar to all calendar views~~
+- ~~get logo to show up in nav bar~~
+- fix date by removing time within date column in holidays and cohorts tables
 - restrict edit views to authenticated users
+- ~~fix bug: cannot click calendar dropdown view while on the "all calendars" page~~
+- fix "delete" and "edit" features to holidays/edit
+- fix "delete" and "modify" features to cohorts/edit
+- fix add cohort feature in CohortController
+- fix add holiday feature in HolidayController
+- add login functionality with google 20ath
+- add email functionality using Spring EmailService
+- finish grad date calculation feature
+- add grad date values to cohort view grid
+- create an event on the calendar to view a cohort
+
 #### Database
 - ~~add campuses table and seed~~
 - ~~build db design~~
 - ~~fix sql file and seed holidays table~~
 - ~~fix sql file seed cohorts table~~
-- create db table for program type 
+- ~~create db table for program type~~ 
 - ~~create db table for campus~~
+- ~~add grad date column to cohort db~~
+
 
 
 #### Calculating end date
 - ~~assign hours values to days of the week~~
 - ~~given a date, determine the day of the week using LocalDate and assign appropriate hours value~~
-- start on the startDate
-- add hours value to totalHours
+- cross-echeck currentdate against holidays
+- ~~start on the startDate~~
+- ~~add hours value to totalHours~~
 - move to next date, while totalHours<contactHours (stop when we hit ContactHours)  
 
 ## Demo
