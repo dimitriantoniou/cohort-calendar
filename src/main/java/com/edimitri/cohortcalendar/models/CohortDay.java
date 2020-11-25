@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class CohortDay {
     private double hours;
-    private LocalDate holidayDate;
-    private Holidays holiday;
+    private LocalDate date;
+    private Holiday holiday;
 
-    public CohortDay(double hours, LocalDate holidayDate, Holidays holiday) {
+    public CohortDay(double hours, LocalDate date, Holiday holiday) {
         this.hours = hours;
-        this.holidayDate = holidayDate;
+        this.date = date;
         this.holiday = holiday;
     }
 
@@ -21,19 +21,19 @@ public class CohortDay {
         this.hours = hours;
     }
 
-    public LocalDate getHolidayDate() {
-        return holidayDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDate(LocalDate holidayDate) {
-        this.holidayDate = holidayDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public Holidays getHoliday() {
+    public Holiday getHoliday() {
         return holiday;
     }
 
-    public void setHoliday(Holidays holiday) {
+    public void setHoliday(Holiday holiday) {
         this.holiday = holiday;
     }
 }

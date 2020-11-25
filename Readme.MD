@@ -89,6 +89,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - finish grad date calculation feature
 - add grad date values to cohort view grid
 - create an event on the calendar to view a cohort
+- html forms accepting dates are saving strings, but need to be stored in DB as Dates
 
 #### Database
 - ~~add campuses table and seed~~

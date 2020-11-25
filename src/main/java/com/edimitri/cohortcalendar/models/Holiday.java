@@ -1,6 +1,7 @@
 package com.edimitri.cohortcalendar.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -8,44 +9,35 @@ import java.util.Date;
 public class Holiday {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable=false)
-    private String holidayName;
+    private String name;
 
-    @Column(nullable=false)
-    private Date holidayDate;
+    @Column(nullable=false, unique=true)
+    private LocalDate date;
 
     public Holiday(){}
 
-    public Holiday(String holidayName, Date holidayDate) {
-        this();
-        this.holidayName = holidayName;
-        this.holidayDate = holidayDate;
+    public Holiday(String holidayName, LocalDate holidayDate) {
+        this.name = name;
+        this.date = date;
     }
 
-    public long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setName(String holidayName) {
+        this.name= name;
     }
 
-    public String getHolidayName() {
-        return holidayName;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setHolidayName(String holidayName) {
-        this.holidayName = holidayName;
-    }
-
-    public Date getHolidayDate() {
-        return holidayDate;
-    }
-
-    public void setHolidayDate(Date holidayDate) {
-        this.holidayDate = holidayDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
 }

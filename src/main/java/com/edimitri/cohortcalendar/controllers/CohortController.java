@@ -1,9 +1,9 @@
 package com.edimitri.cohortcalendar.controllers;
 
 import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.models.CohortDay;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import com.edimitri.cohortcalendar.services.CohortCalendarService;
+import com.edimitri.cohortcalendar.models.CohortDay;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +14,12 @@ import java.util.List;
 @Controller
 public class CohortController {
 
-    private CohortRepository cohortRepository;
-
-    //Douglas code
     private final CohortCalendarService cohortCalendarService;
-
-    public CohortController(CohortRepository cohortRepository,CohortCalendarService cohortCalendarService) {
-        this.cohortRepository = cohortRepository;
-        //Douglas code
-        this.cohortCalendarService = cohortCalendarService;
+    private CohortRepository cohortRepository;
+    public CohortController(CohortCalendarService cohortCalendarService, CohortCalendarService cohortCalendarService1) {
+        this.cohortCalendarService = cohortCalendarService1;
+        this.cohortRepository=cohortRepository;
     }
-
 
     @GetMapping("/cohorts")
     public String cohortsIndex(Model model) {
@@ -32,11 +27,6 @@ public class CohortController {
         model.addAttribute("cohorts", cohorts);
         return "cohorts/cohorts";
     }
-    /*
-    @GetMapping("/cohorts")
-    public String showAddCohortForm() {
-        return "cohorts/cohorts";
-    */
 
     @GetMapping("/cohorts/add")
     public String showAddCohortForm(Model model) {
@@ -62,9 +52,9 @@ public class CohortController {
             if(cohortDay.getHoliday() != null) {
                 dayDisplay = String.format("%s", cohortDay.getHoliday().getName());
             } else {
-                dayDisplay = cohortDay.getHolidayDate().getDayOfWeek().toString();
+                dayDisplay = cohortDay.getDate().getDayOfWeek().toString();
             }
-            body += String.format("%s,%s,%s\n", cohortDay.getHolidayDate().toString(), cohortDay.getHours(), dayDisplay);
+            body += String.format("%s,%s,%s\n", cohortDay.getDate().toString(), cohortDay.getHours(), dayDisplay);
         }
 
         return body;
