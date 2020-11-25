@@ -32,7 +32,7 @@ public class Cohort {
     @Column(nullable=false)
     private int contactHours;
 
-    public Cohort(String name, LocalDate startDate, LocalDate gradDate, String programType, String campus, int contactHours) {
+    public Cohort(String name, LocalDate startDate, String programType, String campus, int contactHours) {
         this();
         this.name = name;
         this.startDate = startDate;
@@ -102,7 +102,7 @@ public class Cohort {
 
     public LocalDate getGradDate(){
         double totalHours=0;
-        double dayHours=0;
+        double dayHours;
         LocalDate currentDate=startDate;
         while (totalHours<contactHours){
             //Holiday holiday=.getHolidayByDate(currentDate);
@@ -111,12 +111,6 @@ public class Cohort {
             totalHours+=dayHours;
             currentDate=currentDate.plusDays(1);
             }
-
         return gradDate;
-    }
-    public void setGradDate(LocalDate startDate){
-        double totalHours=0;
-        LocalDate currentDate=startDate;
-
     }
 }
