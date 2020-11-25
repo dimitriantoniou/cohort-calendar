@@ -41,4 +41,6 @@ public class CohortController {
         cohortRepository.save(cohort);
         return "redirect:/cohorts";
     }
+
+
 }

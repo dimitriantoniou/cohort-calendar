@@ -13,10 +13,11 @@ public class GradDateCalculator {
         /*LocalDate currentDate = cohort.startDate.toInstant().instant.atZone(defaultZoneId).toLocalDate();
 
          */
-        //while program totalhours is less than or equal to contact hours
+        //while program totalhours is less than to contact hours
         // while(cohort.totalHours<=cohort.contactHours){
 
         //if date matches holiday list, break and continue;
+        //Holiday holiday = getHOlidayByDate(currentDate());
         /*
         String holiday = holiday.getHolidayDate();
         Holiday existingHoliday = holidayRepository.findByDate(holidayDate);
@@ -62,5 +63,7 @@ public class GradDateCalculator {
         //move forward 1 day i.e. add 1 current date
             /*currentDate.plus(1);*/
 
+
+        //
     }
 }
