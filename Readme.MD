@@ -83,7 +83,8 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - fix "delete" and "edit" features to holidays/edit
 - fix "delete" and "modify" features to cohorts/edit
 - fix add cohort feature in CohortController
-- fix add holiday feature in HolidayController
+- ~~fix add holiday feature in HolidayController~~
+- fix date formatting in new holiday form submission with timezone issue
 - add login functionality with google 20ath
 - add email functionality using Spring EmailService
 - finish grad date calculation feature
