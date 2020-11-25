@@ -1,5 +1,7 @@
 package com.edimitri.cohortcalendar.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
@@ -18,6 +20,7 @@ public class Cohort {
     private String name;
 
     @Column(nullable=false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     @Column
