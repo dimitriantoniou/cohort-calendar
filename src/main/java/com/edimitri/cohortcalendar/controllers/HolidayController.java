@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 public class HolidayController {
 
-    private HolidayRepository holidayRepository;
+    private final HolidayRepository holidayRepository;
 
     public HolidayController(HolidayRepository holidayRepository) {
         this.holidayRepository = holidayRepository;

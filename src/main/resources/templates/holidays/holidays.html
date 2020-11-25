@@ -20,10 +20,10 @@
         </thead>
         <tbody>
             <tr th:each="holiday : ${holidays}">
-                <td th:text="${holiday.holidayName}"></td>
-                <td th:text="${holiday.holidayDate}"></td>
-                <td><a th:href="@{/edit/{id}(id=${holiday.id})}">Edit</a></td>
-                <td><a th:href="@{/delete/{id}(id=${holiday.id})}">Delete</a></td>
+                <td th:text="${holiday.name}"></td>
+                <td th:text="${holiday.date}"></td>
+                <!--<td><a th:href="@{/edit/{id}(id=${holiday.id})}">Edit</a></td>-->
+                <!--//<td><a th:href="@{/delete/{id}(id=${holiday.id})}">Delete</a></td>-->
             </tr>
         </tbody>
         </table>
