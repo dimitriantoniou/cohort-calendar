@@ -16,7 +16,7 @@ public class CohortController {
 
     private final CohortCalendarService cohortCalendarService;
     private CohortRepository cohortRepository;
-    public CohortController(CohortCalendarService cohortCalendarService, CohortCalendarService cohortCalendarService1) {
+    public CohortController(CohortRepository cohortRepository, CohortCalendarService cohortCalendarService1) {
         this.cohortCalendarService = cohortCalendarService1;
         this.cohortRepository=cohortRepository;
     }
@@ -56,7 +56,6 @@ public class CohortController {
             }
             body += String.format("%s,%s,%s\n", cohortDay.getDate().toString(), cohortDay.getHours(), dayDisplay);
         }
-
         return body;
     }
 

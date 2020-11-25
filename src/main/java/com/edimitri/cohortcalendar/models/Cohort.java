@@ -1,7 +1,10 @@
 package com.edimitri.cohortcalendar.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
+
+import static com.edimitri.cohortcalendar.services.CohortCalendarServiceImpl.getHoursOfDayofWeek;
 
 @Entity
 @Table(name = "cohorts")
@@ -15,10 +18,10 @@ public class Cohort {
     private String name;
 
     @Column(nullable=false)
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column
-    private Date gradDate;
+    private LocalDate gradDate;
 
     @Column(nullable=false)
     private String programType;
@@ -29,14 +32,13 @@ public class Cohort {
     @Column(nullable=false)
     private int contactHours;
 
-    public Cohort(String name, Date startDate, Date gradDate, String programType, String campus, int contactHours) {
+    public Cohort(String name, LocalDate startDate, LocalDate gradDate, String programType, String campus, int contactHours) {
         this();
         this.name = name;
         this.startDate = startDate;
         this.programType = programType;
         this.campus = campus;
         this.contactHours = contactHours;
-        this.gradDate=gradDate;
     }
 
     public Cohort(){
@@ -50,11 +52,11 @@ public class Cohort {
         this.name = name;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
@@ -96,5 +98,25 @@ public class Cohort {
 
     public void setContactHours(int contactHours) {
         this.contactHours = contactHours;
+    }
+
+    public LocalDate getGradDate(){
+        double totalHours=0;
+        double dayHours=0;
+        LocalDate currentDate=startDate;
+        while (totalHours<contactHours){
+            //Holiday holiday=.getHolidayByDate(currentDate);
+            //if(holiday==null){
+                dayHours=getHoursOfDayofWeek(currentDate.getDayOfWeek());
+            totalHours+=dayHours;
+            currentDate=currentDate.plusDays(1);
+            }
+
+        return gradDate;
+    }
+    public void setGradDate(LocalDate startDate){
+        double totalHours=0;
+        LocalDate currentDate=startDate;
+
     }
 }
