@@ -7,16 +7,16 @@
     <h1>Add Holidays</h1>
 
 
-<form method="post" style="max-width:600px;">
+<form style="max-width:600px;" th:action="@{/holidays/add}" th:method="POST" th:object="${holiday}">
 
     <div class="form-group">
         <label for="holidayName-field">Holiday Name</label>
-        <input class="form-control" type="text" id="holidayName-field" placeholder="Holiday Name"/>
+        <input th:field="holidayName" class="form-control" type="text" id="holidayName-field" placeholder="Holiday Name"/>
     </div>
 
     <div class="form-group">
         <label for="holidayDate-field">Holiday Date</label>
-        <input class="form-control" type="date" id="holidayDate-field" placeholder="Holiday Date"/>
+        <input th:field="holidayDate" class="form-control" type="date" id="holidayDate-field" placeholder="Holiday Date"/>
     </div>
     <input type="submit" value="Add Holiday"/>
 </form>
