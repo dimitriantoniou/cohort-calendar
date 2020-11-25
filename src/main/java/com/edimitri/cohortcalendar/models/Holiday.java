@@ -1,5 +1,7 @@
 package com.edimitri.cohortcalendar.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
@@ -15,11 +17,12 @@ public class Holiday {
     private String name;
 
     @Column(nullable=false, unique=true)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     public Holiday(){}
 
-    public Holiday(String holidayName, LocalDate holidayDate) {
+    public Holiday(String name, LocalDate date) {
         this.name = name;
         this.date = date;
     }
