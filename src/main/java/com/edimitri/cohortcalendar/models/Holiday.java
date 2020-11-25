@@ -47,4 +47,5 @@ public class Holiday {
     public void setHolidayDate(Date holidayDate) {
         this.holidayDate = holidayDate;
     }
+
 }
