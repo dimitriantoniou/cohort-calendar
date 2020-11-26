@@ -80,7 +80,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~fix date by removing time within date column in holidays and cohorts tables~~
 - ~~fix bug: cannot click calendar dropdown view while on the "all calendars" page~~
 - ~~fix "delete" feature on holidays~~
-- fix "edit" feature on holidays
+- ~~fix "edit" feature on holidays~~
 - ~~fix "delete" feature on cohorts~~
  - fix "edit" feature on cohorts
 - ~~fix add cohort feature in CohortController~~

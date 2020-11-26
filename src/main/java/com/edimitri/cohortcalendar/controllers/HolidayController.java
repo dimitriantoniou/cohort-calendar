@@ -45,8 +45,9 @@ public class HolidayController {
         model.addAttribute("holiday",holiday);
         return "holidays/edit";
     }
+
     @PostMapping("holidays/{id}/edit")
-    public String editHoliday(@PathVariable Long id, @Valid Holiday editedHoliday, Model model){
+    public String editHoliday(@PathVariable Long id, @Valid Holiday editedHoliday, Model model) {
         editedHoliday.setId(id);
         editedHoliday.setName(editedHoliday.getName());
         holidayRepository.save(editedHoliday);
