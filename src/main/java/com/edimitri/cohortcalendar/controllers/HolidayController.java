@@ -37,14 +37,23 @@ public class HolidayController {
         holidayRepository.save(holiday);
         return "redirect:/holidays";
     }
-/*
-    @GetMapping("/holidays/edit/{id}")
-    public String showUpdateHolidayForm(@PathVariable("id") long id, Model model){
+
+    @GetMapping("/holidays/{id}/edit")
+    public String showUpdateHolidayForm(@PathVariable("id") Long id, Model model){
         Holiday holiday=holidayRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("Invalid holiday id: " +id));
         model.addAttribute("holiday",holiday);
         return "holidays/edit";
     }
+    @PostMapping("holidays/{id}/edit")
+    public String editHoliday(@PathVariable Long id, @Valid Holiday editedHoliday, Model model){
+        editedHoliday.setId(id);
+        editedHoliday.setName(editedHoliday.getName());
+        holidayRepository.save(editedHoliday);
+        return "redirect:/holidays";
+    }
+
+    /*
     @PostMapping("/holidays/edit/{id}")
     public String updateHoliday(@PathVariable long id, @Valid Holiday holiday, Model model){
         holidayRepository.save(holiday);
