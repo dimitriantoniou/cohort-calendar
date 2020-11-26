@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+###don't commit application proprtieis - contain db user and password###
+application.properties
