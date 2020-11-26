@@ -54,14 +54,6 @@ public class HolidayController {
         return "redirect:/holidays";
     }
 
-    /*
-    @PostMapping("/holidays/edit/{id}")
-    public String updateHoliday(@PathVariable long id, @Valid Holiday holiday, Model model){
-        holidayRepository.save(holiday);
-        model.addAttribute("holidays",holidayRepository.findAll());
-        return "redirect:/holidays";
-    }*/
-
     @GetMapping("/holidays/delete/{id}")
     public String deleteHoliday(@PathVariable(value="id") Long id, Model model){
         Holiday holiday = holidayRepository.findById(id)
