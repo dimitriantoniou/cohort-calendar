@@ -23,6 +23,7 @@ public class CohortController {
         this.cohortRepository=cohortRepository;
     }
 
+
     @GetMapping("/cohorts")
     public String cohortsIndex(Model model) {
         List<Cohort> cohorts = cohortRepository.findAll();
@@ -38,6 +39,10 @@ public class CohortController {
 
     @PostMapping("/cohorts/add")
     public String saveCohort(@ModelAttribute Cohort cohort) {
+        //get days of cohort into an array list
+        List<CohortDay> calendar = cohortCalendarService.getCalendar(cohort.getStartDate());
+        //get last date of cohort by passing in the date that I get from CohortDay at index of calendar.size-1; pass into gradDate setter
+        cohort.setGradDate(calendar.get(calendar.size()-1).getDate());
         cohortRepository.save(cohort);
         return "redirect:/cohorts";
     }
@@ -53,6 +58,8 @@ public class CohortController {
     public String editCohort(@PathVariable Long id, @Valid Cohort editedCohort, Model model){
         editedCohort.setId(id);
         editedCohort.setName(editedCohort.getName());
+        List<CohortDay> calendar = cohortCalendarService.getCalendar(editedCohort.getStartDate());
+        editedCohort.setGradDate(calendar.get(calendar.size()-1).getDate());
         cohortRepository.save(editedCohort);
         return"redirect:/cohorts";
     }

@@ -14,13 +14,13 @@ import static com.edimitri.cohortcalendar.services.CohortCalendarServiceImpl.get
 public class Cohort {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable=false,unique=true)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
@@ -28,17 +28,17 @@ public class Cohort {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate gradDate;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String programType;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String campus;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     @NumberFormat
     private double contactHours;
 
-    public Cohort(){
+    public Cohort() {
     }
 
     public Cohort(String name, LocalDate startDate, String programType, String campus, int contactHours) {
@@ -49,7 +49,6 @@ public class Cohort {
         this.campus = campus;
         this.contactHours = contactHours;
     }
-
 
 
     public String getName() {
@@ -108,17 +107,12 @@ public class Cohort {
         this.contactHours = contactHours;
     }
 
-    public LocalDate getGradDate(){
-        double totalHours=0;
-        double dayHours;
-        LocalDate currentDate=startDate;
-        while (totalHours<contactHours){
-            //Holiday holiday=.getHolidayByDate(currentDate);
-            //if(holiday==null){
-                dayHours=getHoursOfDayofWeek(currentDate.getDayOfWeek());
-            totalHours+=dayHours;
-            currentDate=currentDate.plusDays(1);
-            }
+
+    public LocalDate getGradDate() {
         return gradDate;
+    }
+
+    public void setGradDate(LocalDate gradDate) {
+        this.gradDate = gradDate;
     }
 }
