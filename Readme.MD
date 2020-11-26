@@ -77,20 +77,21 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~implement fullcalendar~~
 - ~~add js calendar to all calendar views~~
 - ~~get logo to show up in nav bar~~
-- fix date by removing time within date column in holidays and cohorts tables
-- restrict edit views to authenticated users
+- ~~fix date by removing time within date column in holidays and cohorts tables~~
 - ~~fix bug: cannot click calendar dropdown view while on the "all calendars" page~~
-- fix "delete" and "edit" features to holidays/edit
-- fix "delete" and "modify" features to cohorts/edit
-- fix add cohort feature in CohortController
+- ~~fix "delete" feature on holidays~~
+- fix "edit" feature on holidays
+- ~~fix "delete" feature on cohorts~~
+ - fix "edit" feature on cohorts
+- ~~fix add cohort feature in CohortController~~
 - ~~fix add holiday feature in HolidayController~~
-- fix date formatting in new holiday form submission with timezone issue
-- add login functionality with google 20ath
+- fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?
+- ~~fix bug in holiday form submission: name is not saving~~
 - add email functionality using Spring EmailService
 - finish grad date calculation feature
-- add grad date values to cohort view grid
+- ~~add grad date values to cohort view grid~~
 - create an event on the calendar to view a cohort
-- html forms accepting dates are saving strings, but need to be stored in DB as Dates
+- ~~html forms accepting dates are saving strings, but need to be stored in DB as Dates~~
 
 #### Database
 - ~~add campuses table and seed~~
@@ -100,6 +101,10 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create db table for program type~~ 
 - ~~create db table for campus~~
 - ~~add grad date column to cohort db~~
+
+#### Permissions
+- restrict edit and delete features to admins
+- add login functionality with google 20ath
 
 
 
