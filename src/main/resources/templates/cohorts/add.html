@@ -19,19 +19,19 @@
 
     <div class="form-group">
         <label for="programType-field">Select program type</label>
-        <select class="form-control" id="programType-field">
-            <option>Full-Stack Web Development</option>
-            <option>Data Science</option>
+        <select th:field="*{programType}" class="form-control" id="programType-field">
+            <option value="Full-Stack Web Dev - Java">Full-Stack Web Development</option>
+            <option value="Data Science">Data Science</option>
         </select>
     </div>
 
     <div class="form-group">
         <label for="campus-field">Select campus</label>
-        <select class="form-control" id="campus-field">
-            <option>SAT</option>
-            <option>DAL</option>
-            <option>HOU</option>
-            <option>AUS</option>
+        <select th:field="*{campus}" class="form-control" id="campus-field">
+            <option value="sat">SAT</option>
+            <option value="dal">DAL</option>
+            <option value="hou">HOU</option>
+            <option value="aus">AUS</option>
         </select>
     </div>
 

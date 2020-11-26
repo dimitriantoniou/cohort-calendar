@@ -1,6 +1,7 @@
 package com.edimitri.cohortcalendar.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,6 +34,7 @@ public class Cohort {
     private String campus;
 
     @Column(nullable=false)
+    @NumberFormat
     private int contactHours;
 
     public Cohort(String name, LocalDate startDate, String programType, String campus, int contactHours) {

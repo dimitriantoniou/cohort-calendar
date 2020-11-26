@@ -15,7 +15,7 @@ import java.util.List;
 public class CohortController {
 
     private final CohortCalendarService cohortCalendarService;
-    private CohortRepository cohortRepository;
+    private final CohortRepository cohortRepository;
     public CohortController(CohortRepository cohortRepository, CohortCalendarService cohortCalendarService1) {
         this.cohortCalendarService = cohortCalendarService1;
         this.cohortRepository=cohortRepository;
