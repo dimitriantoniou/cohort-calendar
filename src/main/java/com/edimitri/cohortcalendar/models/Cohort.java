@@ -25,6 +25,7 @@ public class Cohort {
     private LocalDate startDate;
 
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate gradDate;
 
     @Column(nullable=false)
