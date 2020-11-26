@@ -6,5 +6,5 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface CohortCalendarService {
-    List<CohortDay> getCalendar(LocalDate startDate);
+    List<CohortDay> getCalendar(LocalDate startDate, double contactHours);
 }

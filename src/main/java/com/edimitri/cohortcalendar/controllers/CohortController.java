@@ -40,7 +40,7 @@ public class CohortController {
     @PostMapping("/cohorts/add")
     public String saveCohort(@ModelAttribute Cohort cohort) {
         //get days of cohort into an array list
-        List<CohortDay> calendar = cohortCalendarService.getCalendar(cohort.getStartDate());
+        List<CohortDay> calendar = cohortCalendarService.getCalendar(cohort.getStartDate(),cohort.getContactHours());
         //get last date of cohort by passing in the date that I get from CohortDay at index of calendar.size-1; pass into gradDate setter
         cohort.setGradDate(calendar.get(calendar.size()-1).getDate());
         cohortRepository.save(cohort);
@@ -58,7 +58,7 @@ public class CohortController {
     public String editCohort(@PathVariable Long id, @Valid Cohort editedCohort, Model model){
         editedCohort.setId(id);
         editedCohort.setName(editedCohort.getName());
-        List<CohortDay> calendar = cohortCalendarService.getCalendar(editedCohort.getStartDate());
+        List<CohortDay> calendar = cohortCalendarService.getCalendar(editedCohort.getStartDate(),editedCohort.getContactHours());
         editedCohort.setGradDate(calendar.get(calendar.size()-1).getDate());
         cohortRepository.save(editedCohort);
         return"redirect:/cohorts";
@@ -77,7 +77,7 @@ public class CohortController {
     @GetMapping("/get-calendar/{year}/{month}/{day}")
     @ResponseBody
     public String getCalendar(@PathVariable int year, @PathVariable int month, @PathVariable int day) {
-        List<CohortDay> calendar = cohortCalendarService.getCalendar(LocalDate.of(year, month, day) );
+        List<CohortDay> calendar = cohortCalendarService.getCalendar(LocalDate.of(year, month, day),670);
         String body = "";
 
         for (CohortDay cohortDay: calendar) {

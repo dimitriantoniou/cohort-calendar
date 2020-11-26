@@ -19,13 +19,13 @@ public class CohortCalendarServiceImpl implements CohortCalendarService{
     }
 
     @Override
-    public List<CohortDay> getCalendar(LocalDate startDate){
+    public List<CohortDay> getCalendar(LocalDate startDate, double contactHours){
         System.out.println("startDate.getDayOfWeek()= " +startDate.getDayOfWeek());
 
         List<CohortDay> results = new ArrayList<>();
         LocalDate currentDate=startDate;
         double totalHours=0;
-        while (totalHours<670){
+        while (totalHours<contactHours){
             Holiday holiday = getHolidayByDate(currentDate);
             double dayHours=0;
             if(holiday==null){
