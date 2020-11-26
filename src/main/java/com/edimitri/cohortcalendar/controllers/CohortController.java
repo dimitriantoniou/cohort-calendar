@@ -1,6 +1,7 @@
 package com.edimitri.cohortcalendar.controllers;
 
 import com.edimitri.cohortcalendar.models.Cohort;
+import com.edimitri.cohortcalendar.models.Holiday;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import com.edimitri.cohortcalendar.services.CohortCalendarService;
 import com.edimitri.cohortcalendar.models.CohortDay;
@@ -37,6 +38,15 @@ public class CohortController {
     @PostMapping("/cohorts/add")
     public String saveCohort(@ModelAttribute Cohort cohort) {
         cohortRepository.save(cohort);
+        return "redirect:/cohorts";
+    }
+
+    @GetMapping("/cohorts/delete/{id}")
+    public String deleteCohort(@PathVariable(value="id") Long id, Model model){
+        Cohort cohort = cohortRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("Invalid holiday id: "+id));
+        cohortRepository.delete(cohort);
+        model.addAttribute("cohorts",cohortRepository.findAll());
         return "redirect:/cohorts";
     }
 
