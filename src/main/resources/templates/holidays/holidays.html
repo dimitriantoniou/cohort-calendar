@@ -22,7 +22,7 @@
                 <td th:text="${holiday.name}"></td>
                 <td th:text="${holiday.date}"></td>
                 <td><a th:href="@{/edit/{name}(name=${holiday.name})}">Edit</a></td>
-                <td><a th:href="@{/delete/{name}(name=${holiday.name})}">Delete</a></td>
+                <td><a th:href="@{/holidays/delete/{id}(id=${holiday.id})}">Delete</a></td>
             </tr>
         </tbody>
         </table>

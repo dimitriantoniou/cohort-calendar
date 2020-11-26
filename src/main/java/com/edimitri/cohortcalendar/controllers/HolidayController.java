@@ -5,10 +5,7 @@ import com.edimitri.cohortcalendar.repositories.HolidayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -40,7 +37,7 @@ public class HolidayController {
         holidayRepository.save(holiday);
         return "redirect:/holidays";
     }
-
+/*
     @GetMapping("/holidays/edit/{id}")
     public String showUpdateHolidayForm(@PathVariable("id") long id, Model model){
         Holiday holiday=holidayRepository.findById(id)
@@ -49,19 +46,19 @@ public class HolidayController {
         return "holidays/edit";
     }
     @PostMapping("/holidays/edit/{id}")
-    public String updateHoliday(@PathVariable("id") long id, @Valid Holiday holiday, Model model){
+    public String updateHoliday(@PathVariable long id, @Valid Holiday holiday, Model model){
         holidayRepository.save(holiday);
         model.addAttribute("holidays",holidayRepository.findAll());
         return "redirect:/holidays";
-    }
+    }*/
 
     @GetMapping("/holidays/delete/{id}")
-    public String deleteHoliday(@PathVariable("id")long id, Model model){
+    public String deleteHoliday(@PathVariable(value="id") Long id, Model model){
         Holiday holiday = holidayRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("Invalid holiday id: "+id));
         holidayRepository.delete(holiday);
         model.addAttribute("holidays",holidayRepository.findAll());
-        return "holidays/holidays";
+        return "redirect:/holidays";
     }
 }
 
