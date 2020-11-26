@@ -39,7 +39,7 @@ public class Holiday {
         return name;
     }
 
-    public void setName(String holidayName) {
+    public void setName(String name) {
         this.name= name;
     }
 
