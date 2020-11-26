@@ -36,7 +36,10 @@ public class Cohort {
 
     @Column(nullable=false)
     @NumberFormat
-    private int contactHours;
+    private double contactHours;
+
+    public Cohort(){
+    }
 
     public Cohort(String name, LocalDate startDate, String programType, String campus, int contactHours) {
         this();
@@ -47,8 +50,7 @@ public class Cohort {
         this.contactHours = contactHours;
     }
 
-    public Cohort(){
-    }
+
 
     public String getName() {
         return name;
@@ -98,11 +100,11 @@ public class Cohort {
         this.campus = campus;
     }
 
-    public int getContactHours() {
+    public double getContactHours() {
         return contactHours;
     }
 
-    public void setContactHours(int contactHours) {
+    public void setContactHours(double contactHours) {
         this.contactHours = contactHours;
     }
 

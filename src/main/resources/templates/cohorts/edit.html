@@ -6,42 +6,38 @@
 <nav th:replace="fragments :: navbar"></nav>
 <h1>Edit existing cohorts</h1>
 
-<form method="post" style="max-width:600px;">
+<form action="#" th:action="@{/cohorts/{id}/edit(id=${cohort.id})}" th:object="${cohort}" th:method="POST" style="max-width:600px;">
+
     <div class="form-group">
-    <label for="name-field">Name</label>
-    <input class="form-control" type="text" id="name-field" name="name"/>
+        <label for="name-field">Name</label>
+        <input class="form-control" type="text" id="name-field" th:field="*{name}"/>
     </div>
 
     <div class="form-group">
-    <label for="startDate-field">Start date</label>
-    <input class="form-control" type="date" id="startDate-field" name="startDate"/>
+        <label for="startDate-field">Start date</label>
+        <input class="form-control" type="date" id="startDate-field" th:field="*{startDate}"/>
     </div>
 
     <div class="form-group">
         <label for="programType-field">Select program type</label>
-        <select class="form-control" id="programType-field">
-            <option>Full-Stack Web Development</option>
-            <option>Data Science</option>
+        <select th:field="*{programType}" class="form-control" id="programType-field">
+            <option value="Full-Stack Web Dev - Java">Full-Stack Web Development</option>
+            <option value="Data Science">Data Science</option>
         </select>
+    </div>
+    <div class="form-group">
+        <label for="campus-field">Campus (SAT, DAL, HOU, AUS)</label>
+        <input class="form-control" type="text" id="campus-field" th:field="*{campus}"/>
     </div>
 
     <div class="form-group">
-        <label for="campus-field">Select campus</label>
-        <select class="form-control" id="campus-field">
-            <option>SAT</option>
-            <option>DAL</option>
-            <option>HOU</option>
-            <option>AUS</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-    <label for="contactHours-field">Contact hours</label>
-    <input class="form-control" type="int" id="contactHours-field" name="contactHours"/>
+        <label for="contactHours-field">Contact hours</label>
+        <input class="form-control" type="text" id="contactHours-field" th:field="*{contactHours}"/>
     </div>
 
     <input type="submit" value="Add Cohort"/>
 </form>
+
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

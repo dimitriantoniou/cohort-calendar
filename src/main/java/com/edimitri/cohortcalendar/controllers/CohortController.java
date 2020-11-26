@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -39,6 +40,21 @@ public class CohortController {
     public String saveCohort(@ModelAttribute Cohort cohort) {
         cohortRepository.save(cohort);
         return "redirect:/cohorts";
+    }
+
+    @GetMapping("/cohorts/{id}/edit")
+    public String showUpdateCohortForm(@PathVariable("id") Long id, Model model){
+        Cohort cohort=cohortRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("invalid cohort id: " +id));
+        model.addAttribute("cohort",cohort);
+        return"cohorts/edit";
+    }
+    @PostMapping("cohorts/{id}/edit")
+    public String editCohort(@PathVariable Long id, @Valid Cohort editedCohort, Model model){
+        editedCohort.setId(id);
+        editedCohort.setName(editedCohort.getName());
+        cohortRepository.save(editedCohort);
+        return"redirect:/cohorts";
     }
 
     @GetMapping("/cohorts/delete/{id}")
