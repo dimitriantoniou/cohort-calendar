@@ -41,6 +41,8 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - assign week-day values
 - assign holidays and no-class days
 - input a start date and contact hours to output graduation
+- render a visualization to show cohort overlaps
+- render a table to show daily lesson delivery schedule
 - give users permissions to edit different calendars
 - moderate comments, including hiding/deleting
 
@@ -87,7 +89,6 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~fix add holiday feature in HolidayController~~
 - ~~fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?~~
 - ~~fix bug in holiday form submission: name is not saving~~
-- add email functionality using Spring EmailService
 - ~~finish grad date calculation feature~~
 - ~~add grad date values to cohort view grid~~
 - ~~implement a gantt chart to show cohort calendars~~
@@ -104,20 +105,21 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create db table for program type~~ 
 - ~~create db table for campus~~
 - ~~add grad date column to cohort db~~
+- create a table for lesson delivery
 
 #### Permissions
 - restrict edit and delete features to admins
-- add login functionality with google 20ath
+- add login functionality with google 2ath
 
 
 
 #### Calculating end date
 - ~~assign hours values to days of the week~~
 - ~~given a date, determine the day of the week using LocalDate and assign appropriate hours value~~
-- cross-echeck currentdate against holidays
+- ~~cross-echeck currentdate against holidays~~
 - ~~start on the startDate~~
 - ~~add hours value to totalHours~~
-- move to next date, while totalHours<contactHours (stop when we hit ContactHours)  
+- ~~move to next date, while totalHours<contactHours (stop when we hit ContactHours)~~  
 
 ## Demo
 Live demo can be viewed here:
