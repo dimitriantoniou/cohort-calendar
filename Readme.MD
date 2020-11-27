@@ -82,16 +82,19 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~fix "delete" feature on holidays~~
 - ~~fix "edit" feature on holidays~~
 - ~~fix "delete" feature on cohorts~~
- - fix "edit" feature on cohorts
+ - ~~fix "edit" feature on cohorts~~
 - ~~fix add cohort feature in CohortController~~
 - ~~fix add holiday feature in HolidayController~~
-- fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?
+- ~~fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?~~
 - ~~fix bug in holiday form submission: name is not saving~~
 - add email functionality using Spring EmailService
-- finish grad date calculation feature
+- ~~finish grad date calculation feature~~
 - ~~add grad date values to cohort view grid~~
-- create an event on the calendar to view a cohort
+- ~~implement a gantt chart to show cohort calendars~~
 - ~~html forms accepting dates are saving strings, but need to be stored in DB as Dates~~
+- populate a Google Calendar with cohort information
+- connect gantt chart to cohorts table to change from static to dynamic data input
+- create unique gantt chart views for each calendar subdivision 
 
 #### Database
 - ~~add campuses table and seed~~
