@@ -1,21 +1,33 @@
 package com.edimitri.cohortcalendar.controllers;
 
-import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.repositories.CohortRepository;
+import com.edimitri.cohortcalendar.models.Event;
+import com.edimitri.cohortcalendar.repositories.EventRepository;
+import com.edimitri.cohortcalendar.services.CalendarEventService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class CalendarController {
-    private CohortRepository cohortRepository;
+    private EventRepository eventRepository;
 
     @GetMapping(value="/calendars")
-    public String calendars(){return"calendars/calendars";}
+    public String calendars(Model model){
+        List<Event> events = eventRepository.findAll();
+        model.addAttribute("events",events);
+        return"calendars/calendars";
+    }
 
+    /*@PostMapping("/calendars")
+    public String addEvent(@ModelAttribute Event event){
+        List<Event> events = CalendarEventService.getEvents(Event.getName());
+        EventRepository.save(event);
+        return"redirect:/calendars/calendars";
+    }*/
 
     @GetMapping(value="/calendars/web-dev")
     public String webDev(){return"calendars/web-dev";}
