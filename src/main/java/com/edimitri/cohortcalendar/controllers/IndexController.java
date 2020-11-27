@@ -17,18 +17,5 @@ public class IndexController {
     public String login(){return"login";}
 */
 
-    @GetMapping(value="/calendars")
-    public String calendars(){return"calendars/calendars";}
 
-    @GetMapping(value="/calendars/web-dev")
-    public String webDev(){return"calendars/web-dev";}
-
-    @GetMapping(value="/calendars/data-science")
-    public String dataScience(){return"calendars/data-science";}
-
-    @GetMapping(value="/calendars/sat")
-    public String sat(){return"calendars/sat";}
-
-    @GetMapping(value="/calendars/dal")
-    public String dal(){return"calendars/dal";}
 }
