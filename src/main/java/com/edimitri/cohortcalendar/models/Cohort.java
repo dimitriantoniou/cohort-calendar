@@ -41,7 +41,7 @@ public class Cohort {
     public Cohort() {
     }
 
-    public Cohort(String name, LocalDate startDate, String programType, String campus, int contactHours) {
+    public Cohort(String name, LocalDate startDate, String programType, String campus, double contactHours) {
         this();
         this.name = name;
         this.startDate = startDate;
