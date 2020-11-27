@@ -1,13 +1,9 @@
 package com.edimitri.cohortcalendar.services;
 
 import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.models.CohortDay;
-import com.edimitri.cohortcalendar.models.Holiday;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
-import com.edimitri.cohortcalendar.repositories.HolidayRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
