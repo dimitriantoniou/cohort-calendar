@@ -1,11 +1,8 @@
 package com.edimitri.cohortcalendar.controllers;
 
-import com.edimitri.cohortcalendar.models.Event;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
 
 @Controller
 public class CalendarController {
