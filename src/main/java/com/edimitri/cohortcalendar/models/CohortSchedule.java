@@ -17,9 +17,6 @@ public class CohortSchedule {
     private int day;
 
     @Column
-    private int week;
-
-    @Column
     private int period;
 
     @Column
