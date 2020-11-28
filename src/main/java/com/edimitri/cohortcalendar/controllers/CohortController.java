@@ -73,6 +73,13 @@ public class CohortController {
         return "redirect:/cohorts";
     }
 
+    @GetMapping("/cohorts/schedule/{id}")
+    public String cohortSchedule(@PathVariable(value="id") Long id, Model model){
+        Cohort cohort = cohortRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("Invalid cohort id: "+id));
+        model.addAttribute("cohort",cohort);
+    return "cohorts/schedule"; }
+
     //Douglas code
     @GetMapping("/get-calendar/{year}/{month}/{day}")
     @ResponseBody

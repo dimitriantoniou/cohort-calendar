@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<title>Cohorts</title>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+<h1>Cohort Schedule</h1>
+
+<table class="table">
+    <tr>
+        <th>Day</th>
+        <th>Date</th>
+        <th>Week</th>
+        <th>Period</th>
+        <th>Lesson</th>
+        <th>Lecture heavy</th>
+        <th>Exercise heavy</th>
+        <th>Module</th>
+        <th>Evaluation</th>
+        <th>Project</th>
+        <th>Git Workfhlow</th>
+        <th>Additional Priorities</th>
+    </tr>
+    <tr th:each="cohortSchedule : ${cohortSchedules}">
+        <td th:text="${cohortSchedule.day}"></td>
+        <td th:text="${cohortSchedule.date}"></td>
+        <td th:text="${cohortSchedule.week}"></td>
+        <td th:text="${cohortSchedule.period}"></td>
+        <td th:text="${cohortSchedule.lesson}"></td>
+        <td th:text="${cohortSchedule.lectureHeavy}"></td>
+        <td th:text="${cohortSchedule.lessonHeavy}"></td>
+        <td th:text="${cohortSchedule.module}"></td>
+        <td th:text="${cohortSchedule.evaluatoin}"></td>
+        <td th:text="${cohortSchedule.project}"></td>
+        <td th:text="${cohortSchedule.gitWorkflow}"></td>
+        <td th:text="${cohortSchedule.additionalPriorities}"></td>
+    </tr>
+</table>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
