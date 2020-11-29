@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View all Cohorts using AJAX</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        function drawChart() {
+
+            var calendarTable = new google.visualization.DataTable();
+            calendarTable.addColumn('string', 'Task ID');
+            calendarTable.addColumn('string', 'Task Name');
+            calendarTable.addColumn('string', 'Resource');
+            calendarTable.addColumn('date', 'Start Date');
+            calendarTable.addColumn('date', 'End Date');
+            calendarTable.addColumn('number', 'Duration');
+            calendarTable.addColumn('number', 'Percent Complete');
+            calendarTable.addColumn('string', 'Dependencies');
+
+            var options = {
+                height: 400,
+                gantt: {
+                    trackHeight: 30
+                }
+            };
+
+            $.ajax({
+                url: "/calendars.json",
+                dataType: "JSON",
+            }).done(function(data){
+                var calendarArray=[];
+                console.log(data);
+                data.forEach(function(acalendar) {
+                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
+                    calendarArray.push(calendarItem);
+                });
+                console.log(calendarArray);
+            var calendarData = calendarTable.addRows(calendarArray);
+            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+                chart.draw(calendarData, options);
+            });
+        }
+        google.charts.load('current', {'packages':['gantt']});
+        google.charts.setOnLoadCallback(drawChart);
+    </script>
+</head>
+<body>
+<h1>Cohorts</h1>
+<div id="chart_div"></div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"
+>
+</script>
+<!-- include the JS file with the AJAX request -->
+<script src="/static/js/cohorts.js"></script>
+</body>
+</html>

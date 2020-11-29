@@ -18,6 +18,7 @@
 <hr>
 <script>
         // Load the Visualization API and the corechart package.
+
         google.charts.load('current', {'packages':['gantt']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -43,6 +44,7 @@
             ['Cobol', 'Cobol', 'DALWD',
                 new Date(2021,1,19), new Date(2021,7,12), null, null, null]
         ]);
+        console.log(data);
 
         var options = {
             height: 400,
@@ -57,6 +59,17 @@
         chart.draw(data, options);
     }
 </script>
+
+<div id="cohorts"></div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"
+>
+</script>
+<!-- include the JS file with the AJAX request -->
+<script src="/js/ads.js"></script>
+
 <div id="chart_div"></div>
 
 <footer th:replace="fragments :: footer"></footer>
