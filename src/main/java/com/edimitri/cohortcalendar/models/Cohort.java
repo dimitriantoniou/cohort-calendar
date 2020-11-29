@@ -6,6 +6,7 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import static com.edimitri.cohortcalendar.services.CohortCalendarServiceImpl.getHoursOfDayofWeek;
 
@@ -49,7 +50,6 @@ public class Cohort {
         this.campus = campus;
         this.contactHours = contactHours;
     }
-
 
     public String getName() {
         return name;
@@ -115,4 +115,5 @@ public class Cohort {
     public void setGradDate(LocalDate gradDate) {
         this.gradDate = gradDate;
     }
+
 }
