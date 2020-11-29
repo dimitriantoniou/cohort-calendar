@@ -24,7 +24,7 @@ public class CalendarController {
     @GetMapping("/calendars")
     public String index(Model model) {
         model.addAttribute("cohorts", cohortRepository.findAll());
-        return "/calendars/calendars";
+        return "/calendars/ajax";
     }
 
     @GetMapping("/calendars.json")
@@ -32,6 +32,9 @@ public class CalendarController {
     public List<Cohort> viewAllCohortsInJSONFormat() {
         return cohortRepository.findAll();
     }
+
+    //use @RequestParam to  change url query string
+
 
     @GetMapping("/calendars/ajax")
     public String viewAllCohortsWithAjax() {

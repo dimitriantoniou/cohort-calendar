@@ -122,14 +122,13 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~move to next date, while totalHours<contactHours (stop when we hit ContactHours)~~  
 
 #### Rendering Calendar
-- write a controller method to retrieve cohort name, start date, grad date, campus, and program type from the cohorts database and return json 
-- concatenate 'program' and 'campus' to use as "Resource" field 
-- addColumns for gantt chart requirements
-- add rows for each cohort
-- pass null values for unnecessary fields
-- retrieve json data with an ajax request 
-- pass data into draw chart
-
+- ~~write a controller method to retrieve cohort name, start date, grad date, campus, and program type from the cohorts database and return json~~ 
+- ~~concatenate 'program' and 'campus' to use as "Resource" field~~ 
+- ~~addColumns for gantt chart requirements~`
+- ~~add rows for each cohort~~
+- ~~pass null values for unnecessary fields~~
+- ~~retrieve json data with an ajax request~~ 
+- ~~pass data into draw chart~~
 - add function to select and filter by resource (campus/program) type
 - remove alternate calendar views and turn links into buttons for viewing on "Calendars" page
 - build a feature to auto calculate percent completion
