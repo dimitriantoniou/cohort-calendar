@@ -5,6 +5,7 @@ import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class CalendarController {
         this.cohortRepository=cohortRepository;
     }
 
-    /*@GetMapping(value="/calendars")
+    /*Original calendars controller before ajax view
+    @GetMapping(value="/calendars")
     public String allCalendars(){ return"/calendars/calendars";}*/
 
     @GetMapping("/calendars")
@@ -34,6 +36,8 @@ public class CalendarController {
     }
 
     //use @RequestParam to  change url query string
+    //multi-value parameter: @RequestParam List<type> name
+    //mapping all parameters: @RequestParam Map <type1, type 2> allParams
 
 
     @GetMapping("/calendars/ajax")

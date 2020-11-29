@@ -9,10 +9,8 @@ import java.util.List;
 
 public interface CohortRepository extends JpaRepository<Cohort,Long> {
     Cohort findByName(String name);
+    Cohort findByCampusAndProgramType(String campus, String programType);
 
     List<Cohort> findAll();
-
-    @Query("from Cohort a where a.name like %:name%")
-    List<Cohort> findCohortsByName(@Param("name") String name);
 
 }
