@@ -2,8 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>View all Cohorts using AJAX</title>
-
+    <title>View Calendars</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    >
+    </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         function drawChart() {
@@ -22,7 +27,8 @@
                 height: 800,
                 gantt: {
                     trackHeight: 30,
-                    sortTasks: true
+                    sortTasks: true,
+                    percentEnabled: true
                 }
             };
 
@@ -32,16 +38,15 @@
             }).done(function(data){
 
                 var calendarArray=[];
-                console.log(data);
+//                console.log(data);
                 data.forEach(function(acalendar) {
-                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
+                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate),null,null,null];
                     calendarArray.push(calendarItem);
                 });
                 calendarTable.addRows(calendarArray);
                 var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
                 chart.draw(calendarTable, options);
             });
-
         }
         google.charts.load('current', {'packages':['gantt']});
         google.charts.setOnLoadCallback(drawChart);
@@ -65,12 +70,7 @@
 <a class="btn btn-primary" href="/calendars/ajax" role="button">DAL Data Science</button></a>
 <hr>
 <div id="chart_div"></div>
-<script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"
->
-</script>
+
 <!-- include the JS file with the AJAX request -->
 </body>
 </html>
