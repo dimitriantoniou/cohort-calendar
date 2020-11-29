@@ -29,17 +29,18 @@
                 url: "/calendars.json",
                 dataType: "JSON",
             }).done(function(data){
+
                 var calendarArray=[];
                 console.log(data);
                 data.forEach(function(acalendar) {
                     var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
                     calendarArray.push(calendarItem);
                 });
-                console.log(calendarArray);
-            var calendarData = calendarTable.addRows(calendarArray);
-            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
-                chart.draw(calendarData, options);
+                calendarTable.addRows(calendarArray);
+                var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+                chart.draw(calendarTable, options);
             });
+
         }
         google.charts.load('current', {'packages':['gantt']});
         google.charts.setOnLoadCallback(drawChart);
@@ -55,6 +56,5 @@
 >
 </script>
 <!-- include the JS file with the AJAX request -->
-<script src="/static/js/cohorts.js"></script>
 </body>
 </html>
