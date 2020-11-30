@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>View Calendars</title>
+    <title>Calendars</title>
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -31,12 +31,19 @@
                     percentEnabled: true
                 }
             };
-
+            /*WIP code for setting postcode on click
+            var PostCode="";
+            $("#SetPostCode").click(function(){
+                PostCode=document.getElementById("GetPostCode").value;
+                $("GetPostCode").val(" ");
+                return false
+            });*/
             $.ajax({
                 //url: "/calendars.json?programType=data+science",
-                url: "/calendars.json?programType=full-stack+web+dev+-+java",
+                //url: "/calendars.json?programType=full-stack+web+dev+-+java",
                 //url: "/calendars.json?campus=sat",
-                //url: "/calendars.json?campus=dal
+                //url: "/calendars.json?campus=dal",
+                url: "/calendars.json",
                 dataType: "JSON",
             }).done(function(data){
 
@@ -62,13 +69,14 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-<h1>Cohorts</h1>
+<h1>Cohort Calendar</h1>
 
 <a class="btn btn-primary" href="/calendars/ajax" role="button">All Calendars</button></a>
 <a class="btn btn-primary" href="/calendars/ajax?campus=SAT" role="button">SAT</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">Data Science</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?campus=DAL" role="button">DAL</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?programType=data+science" role="button">Data Science</button></a>
+
 <hr>
 <div id="chart_div"></div>
 
