@@ -49,14 +49,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/cohorts/**", // only authenticated users can view cohorts
-                        "/holidays/**" //only authenticated users can view holidays
+                        "/holidays/**",//only authenticated users can view holidays
+                        "/calendars/**"//only authenticated users can view calendars
                 )
                 .authenticated()
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/*")
+                        "/sign-up",
+                        "/about")
                 .permitAll()
         ;
     }
