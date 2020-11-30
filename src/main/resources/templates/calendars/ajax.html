@@ -33,7 +33,10 @@
             };
 
             $.ajax({
-                url: "/calendars.json?campus=DAL",//(?program=2WD)
+                //url: "/calendars.json?programType=data+science",
+                url: "/calendars.json?programType=full-stack+web+dev+-+java",
+                //url: "/calendars.json?campus=sat",
+                //url: "/calendars.json?campus=dal
                 dataType: "JSON",
             }).done(function(data){
 
@@ -46,6 +49,8 @@
                 calendarTable.addRows(calendarArray);
                 var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
                 chart.draw(calendarTable, options);
+                console.log(calendarArray);
+
             });
         }
         google.charts.load('current', {'packages':['gantt']});
