@@ -18,7 +18,7 @@
     <tr th:each="cohort : ${cohorts}">
         <td th:text="${cohort.name}"></td>
         <td th:text="${cohort.programType}"></td>
-        <td th:text="${cohort.campus}"></td>
+        <td th:text="${#strings.toUpperCase(cohort.campus)}"></td>
         <td th:text="${cohort.startDate}"></td>
         <td th:text="${cohort.gradDate}"></td>
         <td th:text="${cohort.contactHours}"></td>
