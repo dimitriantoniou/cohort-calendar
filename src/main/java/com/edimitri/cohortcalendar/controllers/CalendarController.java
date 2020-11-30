@@ -39,12 +39,12 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat() {
-        //return cohortRepository.findByProgramType(programType);
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String programType) {
+        return cohortRepository.findByProgramType(programType);
         //return cohortRepository.findByCampus(campus);
-        //by campus: return cohortRepository.findByCampus(campus); @RequestParam(String campus)
+        //return cohortRepository.findByCampus(campus);
         //return cohortRepository.findByProgramOrCampus(); //all cohorts
-        return cohortRepository.findAll();
+        //return cohortRepository.findAll();
     }
 
     //use @RequestParam to  change url query string
