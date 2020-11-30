@@ -11,7 +11,7 @@ public interface CohortRepository extends JpaRepository<Cohort,Long> {
     Cohort findByName(String name);
     Cohort findByCampusAndProgramType(String campus, String programType);
 
-    List<Cohort>findByProgramType(String campus);
+    List<Cohort>findByProgramType(String programType);
 
     List<Cohort> findByCampus(String campus);
 
