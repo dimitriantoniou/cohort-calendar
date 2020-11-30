@@ -15,8 +15,9 @@ import java.util.List;
 public class CalendarController {
 
     private final CohortRepository cohortRepository;
-    public CalendarController (CohortRepository cohortRepository){
-        this.cohortRepository=cohortRepository;
+
+    public CalendarController(CohortRepository cohortRepository) {
+        this.cohortRepository = cohortRepository;
     }
 
     /*Original calendars controller before ajax view
@@ -29,12 +30,19 @@ public class CalendarController {
         return "/calendars/ajax";
     }
 
+    /*Functioning, non-filtering controller
     @GetMapping("/calendars.json")
     @ResponseBody
     public List<Cohort> viewAllCohortsInJSONFormat() {
         return cohortRepository.findAll();
-    }
+    }*/
 
+    @GetMapping("/calendars.json")
+    @ResponseBody
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String campus) {
+        return cohortRepository.findByCampus(campus);
+        //return cohortRepository.findAll();
+    }
     //use @RequestParam to  change url query string
     //multi-value parameter: @RequestParam List<type> name
     //mapping all parameters: @RequestParam Map <type1, type 2> allParams
@@ -44,16 +52,4 @@ public class CalendarController {
     public String viewAllCohortsWithAjax() {
         return "/calendars/ajax";
     }
-
-    @GetMapping(value="/calendars/web-dev")
-    public String webDev(){return"calendars/web-dev";}
-
-    @GetMapping(value="/calendars/data-science")
-    public String dataScience(){return"calendars/data-science";}
-
-    @GetMapping(value="/calendars/sat")
-    public String sat(){return"calendars/sat";}
-
-    @GetMapping(value="/calendars/dal")
-    public String dal(){return"calendars/dal";}
 }

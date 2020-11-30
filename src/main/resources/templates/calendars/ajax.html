@@ -33,7 +33,7 @@
             };
 
             $.ajax({
-                url: "/calendars.json",//(?program=2WD)
+                url: "/calendars.json?campus=SAT",//(?program=2WD)
                 dataType: "JSON",
             }).done(function(data){
 
@@ -64,10 +64,6 @@
 <a class="btn btn-primary" href="/calendars/ajax" role="button">DAL</button></a>
 <a class="btn btn-primary" href="/calendars/ajax" role="button">Web Dev</button></a>
 <a class="btn btn-primary" href="/calendars/ajax" role="button">Data Science</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">SAT Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">SAT Data Science</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL Data Science</button></a>
 <hr>
 <div id="chart_div"></div>
 
