@@ -38,19 +38,37 @@
                 $("GetPostCode").val(" ");
                 return false
             });*/
+
+            var currentUrl = window.location.href;
+            var queryString;
+            if (currentUrl.includes("SAT")) {
+                queryString = "/calendars.json?campus=sat";
+                } else if (currentUrl.includes("DAL")) {
+                    queryString = "/calendars.json?campus=dal";
+                }else if (currentUrl.includes("java")) {
+                    queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
+                } else if (currentUrl.includes("science")) {
+                    queryString = "/calendars.json?programType=data+science";
+                } else{
+                queryString="/calendars.json";
+            }
+
+            console.log(queryString);
+
             $.ajax({
+                url: queryString,
                 //url: "/calendars.json?programType=data+science",
-                url: "/calendars.json?programType=full-stack+web+dev+-+java",
+                //url: "/calendars.json?programType=full-stack+web+dev+-+java",
                 //url: "/calendars.json?campus=sat",
                 //url: "/calendars.json?campus=dal",
                 //url: "/calendars.json",
                 dataType: "JSON",
-            }).done(function(data){
+            }).done(function (data) {
 
-                var calendarArray=[];
+                var calendarArray = [];
 //                console.log(data);
-                data.forEach(function(acalendar) {
-                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate),null,null,null];
+                data.forEach(function (acalendar) {
+                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus + ' ' + acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
                     calendarArray.push(calendarItem);
                 });
                 calendarTable.addRows(calendarArray);
