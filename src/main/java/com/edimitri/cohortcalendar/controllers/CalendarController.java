@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -39,17 +40,30 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String campus) {
+    public List<Cohort> viewAllCohortsInJSONFormat(HttpServletRequest request) {
+        String url=request.getRequestURI();
+        if (url == "/calendars.json?campus=sat") {
+            return cohortRepository.findByCampus();
+        }else if (url == "/calendars.json?campus=dal"){
+            return cohortRepository.findByCampus();
+        }else if (url == "/calendars.json?programType=full-stack+web+deb+-+java"){
+            return cohortRepository.findByProgramType();
+        }else if (url == "/calendars.json?programType=data+science"){
+            return cohortRepository.findByProgramType();
+        }else{
+            return cohortRepository.findAll();
+        }
         //return cohortRepository.findByProgramType(programType);@RequestParam String programType
-        return cohortRepository.findByCampus(campus);
+        //return cohortRepository.findByCampus(campus);
         //return cohortRepository.findByCampus(campus);
         //return cohortRepository.findAll();
+
     }
 
     /*
     if (@RequestParam is null){return cohortRepository.findAll();
     }else if (@RequestParam is String campus){return cohortRepository.findByCampus(campus)
-    } else if (@RequestParam is String programType){reutrn cohortRepository.findByProgramType(programType)
+    } else if (@RequestParam is String programType){return cohortRepository.findByProgramType(programType)
     }
      */
     //to use the controller, use as conditional; if query is blank --> findAll(); else --> else
