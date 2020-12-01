@@ -39,17 +39,30 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String programType) {
-        return cohortRepository.findByProgramType(programType);
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String campus) {
+        //return cohortRepository.findByProgramType(programType);@RequestParam String programType
+        return cohortRepository.findByCampus(campus);
         //return cohortRepository.findByCampus(campus);
-        //return cohortRepository.findByCampus(campus);
-        //return cohortRepository.findByProgramOrCampus(); //all cohorts
         //return cohortRepository.findAll();
     }
 
-    //use @RequestParam to  change url query string
-    //multi-value parameter: @RequestParam List<type> name
-    //mapping all parameters: @RequestParam Map <type1, type 2> allParams
+    /*
+    if (@RequestParam is null){return cohortRepository.findAll();
+    }else if (@RequestParam is String campus){return cohortRepository.findByCampus(campus)
+    } else if (@RequestParam is String programType){reutrn cohortRepository.findByProgramType(programType)
+    }
+     */
+    //to use the controller, use as conditional; if query is blank --> findAll(); else --> else
+        //then do the same set of conditionals in the ajax request
+
+    //create a default state - if no parameter, pass the set of parameters to get all
+
+    //use a cohortrepo variable and then return the method after the conditional
+    //OR could have multiple returns, which prevents bugs from making a change that isn't made everywhere
+    //variable=cohortRepo.findby____
+    //return variable
+
+    //could process the query string within the html
 
 
     @GetMapping("/calendars/ajax")
