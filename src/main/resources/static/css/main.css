@@ -11,7 +11,7 @@ body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -108,6 +108,11 @@ hr.divider {
 
 .container {
     min-height: 30px;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .container.padded {

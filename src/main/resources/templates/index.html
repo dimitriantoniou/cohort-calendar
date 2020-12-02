@@ -7,18 +7,29 @@
 <nav th:replace="fragments :: navbar"></nav>
     <h1>Cohort Calendar</h1>
 
-<a class="btn btn-primary" href="/cohorts" role="button">View all cohorts</button></a>
-<p>
-    This view shows all cohort data, including: cohort name, start date, graduation date, program type, campus, graduation, type, and contact hours.
-</p>
-<a class="btn btn-primary" href="/holidays" role="button">View all holidays</button></a>
-<p>
-    This view shows all holidays, listed by holiday name and date. These dates have no class hours, and inform the cohort graduation dates.
-</p>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">View cohort calendar</button></a>
-<p>
-    This view shows a gantt chart of all cohorts filtered by campus, program, or all. This allows a view of cohort overlaps.
-</p>
+<container class="container">
+    <container class="container ">
+        <h2>Cohorts</h2>
+        <a class="btn btn-primary" href="/cohorts" role="button">View all cohorts</button></a>
+        <p>
+            View all cohort data, including: cohort name, start date, graduation date, program type, campus, graduation, type, and contact hours.
+        </p>
+    </container>
+    <container class="container ">
+        <h2>Holidays</h2>
+        <a class="btn btn-primary" href="/holidays" role="button">View all holidays</button></a>
+        <p>
+            View holidays listed by holiday name and date. These dates have no class hours, and inform the cohort graduation dates.
+        </p>
+    </container>
+    <container class="container ">
+        <h2>Calendars</h2>
+        <a class="btn btn-primary" href="/calendars/ajax" role="button">View cohort calendar</button></a>
+        <p>
+            View gantt chart of all cohorts and filters for campus and program.
+        </p>
+    </container>
+</container>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
