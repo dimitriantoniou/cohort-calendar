@@ -40,16 +40,11 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(HttpServletRequest request) {
-        String url=request.getRequestURI();
-        if (url == "/calendars.json?campus=sat") {
-            return cohortRepository.findByCampus();
-        }else if (url == "/calendars.json?campus=dal"){
-            return cohortRepository.findByCampus();
-        }else if (url == "/calendars.json?programType=full-stack+web+deb+-+java"){
-            return cohortRepository.findByProgramType();
-        }else if (url == "/calendars.json?programType=data+science"){
-            return cohortRepository.findByProgramType();
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String requestParameter) {
+        if (requestParameter == "campus") {
+            return cohortRepository.findByCampus(requestParameter);
+        }else if (requestParameter == "programType"){
+            return cohortRepository.findByProgramType(requestParameter);
         }else{
             return cohortRepository.findAll();
         }
