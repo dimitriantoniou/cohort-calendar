@@ -100,6 +100,8 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - make cohort chart sort chronologically by start date
 - add holidays filter to select year
 - make holidays chart sort chronoligically
+- add warning popup when deleting cohorts or holidays
+- make edit and delete buttons viewable only to admins
 
 
 #### Database

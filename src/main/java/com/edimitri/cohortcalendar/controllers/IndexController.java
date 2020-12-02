@@ -10,8 +10,6 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value="/about")
-    public String about(){return "about";}
 /*
     @GetMapping(value="/login")
     public String login(){return"login";}
