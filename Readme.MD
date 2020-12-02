@@ -96,6 +96,11 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - populate a Google Calendar with cohort information
 - connect gantt chart to cohorts table to change from static to dynamic data input
 - create unique gantt chart views for each calendar subdivision 
+- add filter to cohorts to view by program, city, or year
+- make cohort chart sort chronologically by start date
+- add holidays filter to select year
+- make holidays chart sort chronoligically
+
 
 #### Database
 - ~~add campuses table and seed~~
@@ -106,10 +111,6 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~create db table for campus~~
 - ~~add grad date column to cohort db~~
 - create a table for lesson delivery
-- add filter to cohorts to view by program, city, or year
-- make cohort chart sort chronologically by start date
-- add holidays filter to select year
-- make holidays chart sort chronoligically
 
 #### Permissions
 - restrict edit and delete features to admins
