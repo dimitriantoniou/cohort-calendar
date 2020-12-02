@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -40,10 +39,10 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam String requestParameter) {
-        if (requestParameter == "campus") {
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(name="requestParameter") String requestParameter) {
+        if (requestParameter.contains("campus")) {
             return cohortRepository.findByCampus(requestParameter);
-        }else if (requestParameter == "programType"){
+        }else if (requestParameter.contains("programType")){
             return cohortRepository.findByProgramType(requestParameter);
         }else{
             return cohortRepository.findAll();
@@ -55,7 +54,7 @@ public class CalendarController {
 
     }
 
-    /*
+    /* Pseudo code for controller conditional logic
     if (@RequestParam is null){return cohortRepository.findAll();
     }else if (@RequestParam is String campus){return cohortRepository.findByCampus(campus)
     } else if (@RequestParam is String programType){return cohortRepository.findByProgramType(programType)
@@ -64,14 +63,11 @@ public class CalendarController {
     //to use the controller, use as conditional; if query is blank --> findAll(); else --> else
         //then do the same set of conditionals in the ajax request
 
-    //create a default state - if no parameter, pass the set of parameters to get all
-
     //use a cohortrepo variable and then return the method after the conditional
-    //OR could have multiple returns, which prevents bugs from making a change that isn't made everywhere
     //variable=cohortRepo.findby____
     //return variable
+    //OR could have multiple returns
 
-    //could process the query string within the html
 
 
     @GetMapping("/calendars/ajax")
