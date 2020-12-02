@@ -39,10 +39,12 @@ public class CalendarController {
 
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(name="requestParameter") String requestParameter) {
-        if (requestParameter.contains("campus")) {
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(name="requestParameter", required=false) String requestParameter) {
+        if (requestParameter == null) {
+            return cohortRepository.findAll();
+        }else if (requestParameter.contains("SAT")||requestParameter.contains("DAL")) {
             return cohortRepository.findByCampus(requestParameter);
-        }else if (requestParameter.contains("programType")){
+        }else if (requestParameter.contains("full-stack")||requestParameter.contains("data+science")){
             return cohortRepository.findByProgramType(requestParameter);
         }else{
             return cohortRepository.findAll();
