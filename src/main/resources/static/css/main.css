@@ -110,22 +110,16 @@ hr.divider {
     min-height: 30px;
     display:flex;
     justify-content:space-between;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: start;
 
+}
+.container.home{
+    flex-direction: column;
 }
 
 .container.padded {
     padding: 30px 15px;
-}
-
-.container.bordered {
-    border: 1px solid #c0c0c0;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 .social {
@@ -241,6 +235,7 @@ footer {
     padding: 40px 0;
     color: #999;
     background-color: #181d32;
+    position: sticky;
 }
 
 footer .logo {
@@ -368,6 +363,11 @@ footer h3 {
     color: #ffffff;
     background-color: #7345a9;
     border-color: #7345a9;
+}
+.btn-blue{
+    color: #181d32;
+    background-color: #181d32;
+    border-color: #181d32
 }
 
 .btn-purple:hover,
