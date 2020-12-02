@@ -11,7 +11,7 @@ body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -359,6 +359,7 @@ footer h3 {
     padding: 6px 6px;
     font-family: 'Titillium Web', sans-serif;
 }
+
 .btn-purple {
     color: #ffffff;
     background-color: #7345a9;
@@ -370,45 +371,9 @@ footer h3 {
     border-color: #181d32
 }
 
-.btn-purple:hover,
-.btn-purple:focus,
-.btn-purple:active,
-.btn-purple.active,
-.open .dropdown-toggle.btn-purple {
-    color: #ffffff;
-    background-color: #49247A;
-    border-color: #7345a9;
-}
-
-.btn-purple:active,
-.btn-purple.active,
-.open .dropdown-toggle.btn-purple {
-    background-image: none;
-}
-
-.btn-purple.disabled,
-.btn-purple[disabled],
-fieldset[disabled] .btn-purple,
-.btn-purple.disabled:hover,
-.btn-purple[disabled]:hover,
-fieldset[disabled] .btn-purple:hover,
-.btn-purple.disabled:focus,
-.btn-purple[disabled]:focus,
-fieldset[disabled] .btn-purple:focus,
-.btn-purple.disabled:active,
-.btn-purple[disabled]:active,
-fieldset[disabled] .btn-purple:active,
-.btn-purple.disabled.active,
-.btn-purple[disabled].active,
-fieldset[disabled] .btn-purple.active {
-    background-color: #7345a9;
-    border-color: #7345a9;
-}
-
-.btn-purple .badge {
-    color: #7345a9;
-    background-color: #ffffff;
-}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
 
 .btn-green {
     color: #ffffff;
@@ -475,7 +440,7 @@ padding-bottom: 7%;
 }
 
 a, a:visited, a:hover {
-    color: #7345a9;
+    color: green;
     text-decoration: none;
 }
 
