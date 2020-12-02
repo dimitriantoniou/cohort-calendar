@@ -42,9 +42,9 @@ public class CalendarController {
     public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(name="requestParameter", required=false) String requestParameter) {
         if (requestParameter == null) {
             return cohortRepository.findAll();
-        }else if (requestParameter.contains("SAT")||requestParameter.contains("DAL")) {
+        }else if (requestParameter.contains("campus")){
             return cohortRepository.findByCampus(requestParameter);
-        }else if (requestParameter.contains("full-stack")||requestParameter.contains("data+science")){
+        }else if (requestParameter.contains("program")){
             return cohortRepository.findByProgramType(requestParameter);
         }else{
             return cohortRepository.findAll();
