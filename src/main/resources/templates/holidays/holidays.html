@@ -23,7 +23,7 @@
                 </tr>
         </thead>
         <tbody>
-            <tr th:each="holiday : ${holidays}">
+            <tr th:each="holiday : ${#lists.sort(holidays,byDate)}">
                 <td th:text="${holiday.name}"></td>
                 <td th:text="${holiday.date}"></td>
                 <td><a th:href="@{/holidays/{id}/edit(id=${holiday.id})}" class="btn btn-warning">Edit</a></td>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -23,6 +24,8 @@ public class HolidayController {
     public String cohortsIndex(Model model) {
         List<Holiday> holidays = holidayRepository.findAll();
         model.addAttribute("holidays", holidays);
+        model.addAttribute("byDate", Comparator.comparing(Holiday::getDate));
+
         return "holidays/holidays";
     }
 

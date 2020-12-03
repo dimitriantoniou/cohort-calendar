@@ -19,7 +19,7 @@
         <th><h2>Graduation Date</h2></th>
         <th><h2>Contact Hours</h2></th>
     </tr>
-    <tr th:each="cohort : ${cohorts}">
+    <tr th:each="cohort : ${#lists.sort(cohorts,byStartDate)}">
         <td th:text="${cohort.name}"></td>
         <td th:text="${cohort.programType}"></td>
         <td th:text="${#strings.toUpperCase(cohort.campus)}"></td>
