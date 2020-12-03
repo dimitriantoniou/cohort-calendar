@@ -2,8 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>View all Cohorts using AJAX</title>
-
+    <title>Calendars</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    >
+    </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         function drawChart() {
@@ -22,26 +27,49 @@
                 height: 800,
                 gantt: {
                     trackHeight: 30,
-                    sortTasks: true
+                    sortTasks: true,
+                    percentEnabled: true
                 }
             };
 
-            $.ajax({
-                url: "/calendars.json",//(?program=2WD)
-                dataType: "JSON",
-            }).done(function(data){
+            var currentUrl = window.location.href;
+            var queryString;
+            if (currentUrl.includes("SAT")) {
+                queryString = "/calendars.json?campus=sat";
+                } else if (currentUrl.includes("DAL")) {
+                    queryString = "/calendars.json?campus=dal";
+                }else if (currentUrl.includes("java")) {
+                    queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
+                } else if (currentUrl.includes("science")) {
+                    queryString = "/calendars.json?programType=data+science";
+                } else{
+                queryString="/calendars.json";
+            }
 
-                var calendarArray=[];
-                console.log(data);
-                data.forEach(function(acalendar) {
-                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus+' '+acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
+            console.log(queryString);
+
+            $.ajax({
+                url: queryString,
+                //url: "/calendars.json?programType=data+science",
+                //url: "/calendars.json?programType=full-stack+web+dev+-+java",
+                //url: "/calendars.json?campus=sat",
+                //url: "/calendars.json?campus=dal",
+                //url: "/calendars.json",
+                dataType: "JSON",
+            }).done(function (data) {
+
+                var calendarArray = [];
+//                console.log(data);
+                data.forEach(function (acalendar) {
+                    var calendarItem = [acalendar.id.toString(), acalendar.name, acalendar.campus + ' ' + acalendar.programType, new Date(acalendar.startDate), new Date(acalendar.gradDate), null, null, null];
                     calendarArray.push(calendarItem);
                 });
                 calendarTable.addRows(calendarArray);
                 var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
                 chart.draw(calendarTable, options);
-            });
+                console.log(calendarArray);
 
+            });
         }
         google.charts.load('current', {'packages':['gantt']});
         google.charts.setOnLoadCallback(drawChart);
@@ -52,25 +80,17 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-<h1>Cohorts</h1>
+<h1>Cohort Calendar</h1>
 
 <a class="btn btn-primary" href="/calendars/ajax" role="button">All Calendars</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">SAT</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">Data Science</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">SAT Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">SAT Data Science</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL Web Dev</button></a>
-<a class="btn btn-primary" href="/calendars/ajax" role="button">DAL Data Science</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?campus=SAT" role="button">SAT</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?campus=DAL" role="button">DAL</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?programType=data+science" role="button">Data Science</button></a>
+
 <hr>
 <div id="chart_div"></div>
-<script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"
->
-</script>
+
 <!-- include the JS file with the AJAX request -->
 <footer></footer>
 </body>
