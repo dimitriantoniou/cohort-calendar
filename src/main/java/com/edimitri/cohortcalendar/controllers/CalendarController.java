@@ -44,12 +44,12 @@ public class CalendarController {
     @ResponseBody
     public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(required=false) String campus, @RequestParam(required=false) String programType) {
         System.out.println(campus+programType);
-        if (campus == null) {
+        if (campus == null && programType==null) {
             return cohortRepository.findAll();
-        }else if (campus.contains("campus")){
+        }else if (campus!=null){
             return cohortRepository.findByCampus(campus);
-        }else if (campus.contains("program")){
-            return cohortRepository.findByProgramType(campus);
+        }else if (programType!=null){
+            return cohortRepository.findByProgramType(programType);
         }else{
             return cohortRepository.findAll();
         }
