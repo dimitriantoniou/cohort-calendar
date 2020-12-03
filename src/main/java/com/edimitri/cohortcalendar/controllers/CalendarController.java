@@ -37,15 +37,19 @@ public class CalendarController {
         return cohortRepository.findAll();
     }*/
 
+    //http servlet request
+    //url.getQuery()
+
     @GetMapping("/calendars.json")
     @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(name="requestParameter", required=false) String requestParameter) {
-        if (requestParameter == null) {
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(required=false) String campus, @RequestParam(required=false) String programType) {
+        System.out.println(campus+programType);
+        if (campus == null) {
             return cohortRepository.findAll();
-        }else if (requestParameter.contains("campus")){
-            return cohortRepository.findByCampus(requestParameter);
-        }else if (requestParameter.contains("program")){
-            return cohortRepository.findByProgramType(requestParameter);
+        }else if (campus.contains("campus")){
+            return cohortRepository.findByCampus(campus);
+        }else if (campus.contains("program")){
+            return cohortRepository.findByProgramType(campus);
         }else{
             return cohortRepository.findAll();
         }
