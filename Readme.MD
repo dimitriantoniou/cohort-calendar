@@ -102,6 +102,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~make holidays chart sort chronoligically~~
 - add warning popup when deleting cohorts or holidays
 - make edit and delete buttons viewable only to admins
+- add filters on Cohorts view to select by program, campus
 
 
 #### Database

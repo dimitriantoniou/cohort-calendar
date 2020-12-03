@@ -30,8 +30,30 @@ public class CohortController {
         List<Cohort> cohorts = cohortRepository.findAll();
         model.addAttribute("cohorts", cohorts);
         model.addAttribute("byStartDate", Comparator.comparing(Cohort::getStartDate));
-        return "cohorts/cohorts";
+        return "cohorts/ajax";
     }
+
+    @GetMapping("/cohorts.json")
+    @ResponseBody
+    public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(required=false) String campus, @RequestParam(required=false) String programType) {
+//        System.out.println(campus+programType);
+        if (campus == null && programType == null) {
+            return cohortRepository.findAll();
+        } else if (campus != null) {
+            return cohortRepository.findByCampus(campus);
+        } else if (programType != null) {
+            return cohortRepository.findByProgramType(programType);
+        } else {
+            return cohortRepository.findAll();
+        }
+    }
+
+    @GetMapping("/cohorts/ajax")
+        public String viewAllCohortsWithAjax() {
+        return "/cohorts/ajax";
+    }
+
+
 
     @GetMapping("/cohorts/add")
     public String showAddCohortForm(Model model) {

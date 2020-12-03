@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cohorts</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    >
+    </script>
+
+<script type="text/javascript">
+    function setUrl(){
+        var currentUrl = window.location.href;
+        var queryString;
+        if (currentUrl.includes("SAT")) {
+            queryString = "/calendars.json?campus=sat";
+        } else if (currentUrl.includes("DAL")) {
+            queryString = "/calendars.json?campus=dal";
+        } else if (currentUrl.includes("HOU")) {
+            queryString = "/calendars.json?campus=hou";
+        }else if (currentUrl.includes("java")) {
+            queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
+        } else if (currentUrl.includes("science")) {
+            queryString = "/calendars.json?programType=data+science";
+        } else{
+            queryString="/calendars.json";
+        }
+
+        console.log(queryString);
+
+        $.ajax({
+            url: queryString,
+            //url: "/cohorts.json?programType=data+science",
+            //url: "/cohorts.json?programType=full-stack+web+dev+-+java",
+            //url: "/cohorts.json?campus=sat",
+            //url: "/cohorts.json?campus=dal",
+            //url: "/cohorts.json",
+            dataType: "JSON",
+        }).done(function () {
+
+            chart.draw(calendarTable, options);
+            console.log(calendarArray);
+
+        });
+    }
+    setUrl();
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+<br>
+<container class="container">
+    <h1>Cohorts</h1>
+    <a class="btn btn-green" href="/cohorts/add" role="button">Add Cohort</button></a>
+</container>
+<br>
+<a class="btn btn-primary" href="/cohorts/ajax" role="button">All Calendars</button></a>
+<a class="btn btn-primary" href="/cohorts/ajax?campus=SAT" role="button">SAT</button></a>
+<a class="btn btn-primary" href="/cohorts/ajax?campus=DAL" role="button">DAL</button></a>
+<a class="btn btn-primary" href="/cohorts/ajax?campus=HOU" role="button">HOU</button></a>
+<a class="btn btn-primary" href="/cohorts/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
+<a class="btn btn-primary" href="/cohorts/ajax?programType=data+science" role="button">Data Science</button></a>
+<table class="table">
+    <br>
+    <tr>
+        <th><h2>Cohort Name</h2></th>
+        <th><h2>Program Type</h2></th>
+        <th><h2>Campus</h2></th>
+        <th><h2>Start Date</h2></th>
+        <th><h2>Graduation Date</h2></th>
+        <th><h2>Contact Hours</h2></th>
+    </tr>
+    <tr th:each="cohort : ${#lists.sort(cohorts,byStartDate)}">
+        <td th:text="${cohort.name}"></td>
+        <td th:text="${cohort.programType}"></td>
+        <td th:text="${#strings.toUpperCase(cohort.campus)}"></td>
+        <td th:text="${cohort.startDate}"></td>
+        <td th:text="${cohort.gradDate}"></td>
+        <td th:text="${cohort.contactHours}"></td>
+        <td><a th:href="@{/cohorts/{id}/edit(id=${cohort.id})}" class="btn btn-warning">Edit</a></td>
+        <td><a th:href="@{/cohorts/delete/{id}(id=${cohort.id})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+<hr>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
