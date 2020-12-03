@@ -37,7 +37,9 @@
             if (currentUrl.includes("SAT")) {
                 queryString = "/calendars.json?campus=sat";
                 } else if (currentUrl.includes("DAL")) {
-                    queryString = "/calendars.json?campus=dal";
+                queryString = "/calendars.json?campus=dal";
+                } else if (currentUrl.includes("HOU")) {
+                    queryString = "/calendars.json?campus=hou";
                 }else if (currentUrl.includes("java")) {
                     queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
                 } else if (currentUrl.includes("science")) {
@@ -85,6 +87,7 @@
 <a class="btn btn-primary" href="/calendars/ajax" role="button">All Calendars</button></a>
 <a class="btn btn-primary" href="/calendars/ajax?campus=SAT" role="button">SAT</button></a>
 <a class="btn btn-primary" href="/calendars/ajax?campus=DAL" role="button">DAL</button></a>
+<a class="btn btn-primary" href="/calendars/ajax?campus=HOU" role="button">HOU</button></a>
 <a class="btn btn-primary" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
 <a class="btn btn-primary" href="/calendars/ajax?programType=data+science" role="button">Data Science</button></a>
 

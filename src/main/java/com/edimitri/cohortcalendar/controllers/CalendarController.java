@@ -43,7 +43,7 @@ public class CalendarController {
     @GetMapping("/calendars.json")
     @ResponseBody
     public List<Cohort> viewAllCohortsInJSONFormat(@RequestParam(required=false) String campus, @RequestParam(required=false) String programType) {
-        System.out.println(campus+programType);
+//        System.out.println(campus+programType);
         if (campus == null && programType==null) {
             return cohortRepository.findAll();
         }else if (campus!=null){
