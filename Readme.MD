@@ -94,12 +94,12 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~implement a gantt chart to show cohort calendars~~
 - ~~html forms accepting dates are saving strings, but need to be stored in DB as Dates~~
 - populate a Google Calendar with cohort information
-- connect gantt chart to cohorts table to change from static to dynamic data input
-- create unique gantt chart views for each calendar subdivision 
+- ~~connect gantt chart to cohorts table to change from static to dynamic data input~~
+- ~~create unique gantt chart views for each calendar subdivision~~ 
 - add filter to cohorts to view by program, city, or year
-- make cohort chart sort chronologically by start date
+- ~~make cohort chart sort chronologically by start date~~
 - add holidays filter to select year
-- make holidays chart sort chronoligically
+- ~~make holidays chart sort chronoligically~~
 - add warning popup when deleting cohorts or holidays
 - make edit and delete buttons viewable only to admins
 
@@ -136,9 +136,13 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~pass null values for unnecessary fields~~
 - ~~retrieve json data with an ajax request~~ 
 - ~~pass data into draw chart~~
-- add function to select and filter by resource (campus/program) type
-- remove alternate calendar views and turn links into buttons for viewing on "Calendars" page
+- ~~add function to select and filter by resource (campus/program) type~~
+- ~~remove alternate calendar views and turn links into buttons for viewing on "Calendars" page~~
 - build a feature to auto calculate percent completion
+
+
+#### Bugs
+- campuses/program name case sensitivity matching/displaying issue
 
 ## Demo
 Live demo can be viewed here:
