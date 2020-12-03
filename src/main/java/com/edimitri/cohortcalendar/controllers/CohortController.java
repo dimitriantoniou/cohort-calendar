@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -28,6 +29,7 @@ public class CohortController {
     public String cohortsIndex(Model model) {
         List<Cohort> cohorts = cohortRepository.findAll();
         model.addAttribute("cohorts", cohorts);
+        model.addAttribute("byStartDate", Comparator.comparing(Cohort::getStartDate));
         return "cohorts/cohorts";
     }
 
