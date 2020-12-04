@@ -20,25 +20,11 @@ public class CalendarController {
         this.cohortRepository = cohortRepository;
     }
 
-    /*Original calendars controller before ajax view
-    @GetMapping(value="/calendars")
-    public String allCalendars(){ return"/calendars/calendars";}*/
-
     @GetMapping("/calendars")
     public String index(Model model) {
         model.addAttribute("cohorts", cohortRepository.findAll());
         return "/calendars/ajax";
     }
-
-    /*Functioning, non-filtering controller
-    @GetMapping("/calendars.json")
-    @ResponseBody
-    public List<Cohort> viewAllCohortsInJSONFormat() {
-        return cohortRepository.findAll();
-    }*/
-
-    //http servlet request
-    //url.getQuery()
 
     @GetMapping("/calendars.json")
     @ResponseBody
@@ -53,28 +39,7 @@ public class CalendarController {
         }else{
             return cohortRepository.findAll();
         }
-        //return cohortRepository.findByProgramType(programType);@RequestParam String programType
-        //return cohortRepository.findByCampus(campus);
-        //return cohortRepository.findByCampus(campus);
-        //return cohortRepository.findAll();
-
     }
-
-    /* Pseudo code for controller conditional logic
-    if (@RequestParam is null){return cohortRepository.findAll();
-    }else if (@RequestParam is String campus){return cohortRepository.findByCampus(campus)
-    } else if (@RequestParam is String programType){return cohortRepository.findByProgramType(programType)
-    }
-     */
-    //to use the controller, use as conditional; if query is blank --> findAll(); else --> else
-        //then do the same set of conditionals in the ajax request
-
-    //use a cohortrepo variable and then return the method after the conditional
-    //variable=cohortRepo.findby____
-    //return variable
-    //OR could have multiple returns
-
-
 
     @GetMapping("/calendars/ajax")
     public String viewAllCohortsWithAjax() {

@@ -1,7 +1,6 @@
 package com.edimitri.cohortcalendar.controllers;
 
 import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.models.Holiday;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import com.edimitri.cohortcalendar.services.CohortCalendarService;
 import com.edimitri.cohortcalendar.models.CohortDay;
