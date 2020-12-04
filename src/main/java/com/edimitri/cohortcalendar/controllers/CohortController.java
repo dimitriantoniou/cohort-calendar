@@ -1,10 +1,9 @@
 package com.edimitri.cohortcalendar.controllers;
 
-import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.models.Holiday;
+import com.edimitri.cohortcalendar.models.*;
 import com.edimitri.cohortcalendar.repositories.CohortRepository;
 import com.edimitri.cohortcalendar.services.CohortCalendarService;
-import com.edimitri.cohortcalendar.models.CohortDay;
+import com.edimitri.cohortcalendar.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +18,11 @@ public class CohortController {
 
     private final CohortCalendarService cohortCalendarService;
     private final CohortRepository cohortRepository;
-    public CohortController(CohortRepository cohortRepository, CohortCalendarService cohortCalendarService1) {
+    private final UserService userService;
+    public CohortController(CohortRepository cohortRepository, CohortCalendarService cohortCalendarService1, UserService userService) {
         this.cohortCalendarService = cohortCalendarService1;
         this.cohortRepository=cohortRepository;
+        this.userService=userService;
     }
 
 
@@ -30,6 +31,7 @@ public class CohortController {
         List<Cohort> cohorts = cohortRepository.findAll();
         model.addAttribute("cohorts", cohorts);
         model.addAttribute("byStartDate", Comparator.comparing(Cohort::getStartDate));
+        model.addAttribute("isAdmin", userService.isAdmin(user.isAdmin(user)));
         return "cohorts/cohorts";
     }
 
