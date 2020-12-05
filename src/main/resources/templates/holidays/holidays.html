@@ -27,7 +27,7 @@
                 <td th:text="${holiday.name}"></td>
                 <td th:text="${holiday.date}"></td>
                 <td><a th:href="@{/holidays/{id}/edit(id=${holiday.id})}" class="btn btn-warning">Edit</a></td>
-                <td><a th:href="@{/holidays/delete/{id}(id=${holiday.id})}" class="btn btn-danger">Delete</a></td>
+                <td><a th:href="@{/holidays/delete/{id}(id=${holiday.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
             </tr>
         </tbody>
         </table>
