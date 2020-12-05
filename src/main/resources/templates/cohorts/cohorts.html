@@ -27,7 +27,7 @@
         <td th:text="${cohort.gradDate}"></td>
         <td th:text="${cohort.contactHours}"></td>
         <td><a th:href="@{/cohorts/{id}/edit(id=${cohort.id})}" class="btn btn-warning">Edit</a></td>
-        <td><a th:href="@{/cohorts/delete/{id}(id=${cohort.id})}" class="btn btn-danger">Delete</a></td>
+        <td><a th:href="@{/cohorts/delete/{id}(id=${cohort.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
     </tr>
 </table>
 <hr>
