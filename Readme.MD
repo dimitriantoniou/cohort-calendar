@@ -141,7 +141,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 
 
 #### Bugs
-- campuses/program name case sensitivity matching/displaying issue
+- ~~campuses/program name case sensitivity matching/displaying issue~~
 
 ## Demo
 Live demo can be viewed here:
