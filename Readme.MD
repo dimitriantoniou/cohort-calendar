@@ -3,14 +3,16 @@
 
 
 The Cohort Calendar is the master calendar for Codeup. 
-It records start dates, graduation dates, holidays, and daily/weekly hours.
+It centralizes cohorts, holidays, adn calendars.
 
 
-The application receives the following inputs: program, contact hours, start date, holidays, daily hours values
-The application outputs the graduation date and a full calendar.
+The application receives the following inputs: cohort name, program type, campus, start date, holidays, and daily hours values. 
+The application then outputs the graduation date and a gantt chart visualization of the cohort calendars.
 
-Visitors can view calendars. Users can view calendar details. Admins can add, edit, and delete calendars.
+Visitors can log in or sign up. Users can view cohort, holiday, and calendar details. Admins can add, edit, and delete cohorts and holidays.
 
+## Demo
+Live demo can be viewed here:
 
 ## User stories
 
@@ -45,8 +47,7 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - [ ] filter cohorts by program, campus, or year
 - [ ] render a table to show daily lesson delivery schedule
 
-## Demo
-Live demo can be viewed here:
+
 
 ## To Do
 - [x] abstract class for program type that initializes contact hours and daily hours and declares start date and name
