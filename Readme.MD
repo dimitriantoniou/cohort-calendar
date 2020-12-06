@@ -142,6 +142,10 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 
 #### Bugs
 - ~~campuses/program name case sensitivity matching/displaying issue~~
+- ~~footer is floating~~
+- ~~login form input boxes are not aligned~~
+- search bar is not centered
+
 
 ## Demo
 Live demo can be viewed here:
