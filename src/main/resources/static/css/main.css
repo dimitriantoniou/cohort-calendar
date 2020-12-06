@@ -14,6 +14,7 @@ body {
     font-size: 20px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    margin-bottom: 60px;
 }
 
 .white {
@@ -232,7 +233,7 @@ hr.divider {
 /* footer styles*/
 
 footer {
-    padding: 40px 0;
+    padding: 40px;
     color: #999;
     background-color: #181d32;
     position: sticky;
@@ -279,8 +280,8 @@ footer h3 {
 #footer-top {
     width: 100%;
     background-color: #1f2542;
-    margin: 0 auto;
-    padding: 1% 0;
+    /*margin: 0 auto;
+    padding: 1% 0;*/
     color: #fff;
 }
 
