@@ -485,7 +485,18 @@ a#ds-filter.btn{
 #filter-buttons {
     padding-bottom: 2%;
 }
-
+#calendar-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+#calendars-by-campus{
+    display: flex;
+    justify-content:space-between;
+}
+#calendars-by-program{
+    display: flex;
+    justify-content:space-between;
+}
 
 @media (max-width: 992px) {
     #mainBody #cohort-info h1,h2,h3,h4,h5,h6 {

@@ -145,6 +145,13 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 - ~~footer is floating~~
 - ~~login form input boxes are not aligned~~
 - search bar is not centered
+- username/email name mismatch
+- footer is covering page content
+- footer not present on all pages
+- home page buttons are not on the same horizontal line
+- horizontal lines on cohorts and holidays don't extend across edit and delete
+- ~~calendar buttons dont match color scheme~~
+- center cohort calendar buttons
 
 
 ## Demo
