@@ -23,7 +23,7 @@ public class CalendarController {
     @GetMapping("/calendars")
     public String index(Model model) {
         model.addAttribute("cohorts", cohortRepository.findAll());
-        return "/calendars/ajax";
+        return "calendars/ajax";
     }
 
     @GetMapping("/calendars.json")
@@ -43,6 +43,6 @@ public class CalendarController {
 
     @GetMapping("/calendars/ajax")
     public String viewAllCohortsWithAjax() {
-        return "/calendars/ajax";
+        return "calendars/ajax";
     }
 }

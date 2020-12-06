@@ -16,6 +16,6 @@ public class AuthenticationController {
         if (token instanceof AnonymousAuthenticationToken) return "users/login";
 
         // Redirect to the configured home page
-        return ("/users/profile");
+        return ("users/profile");
     }
 }
