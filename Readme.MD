@@ -15,144 +15,144 @@ Visitors can view calendars. Users can view calendar details. Admins can add, ed
 ## User stories
 
 #### As a visitor, I can:
-- read about the site, login, or view calendars
-- view calendars by location, program, or year
+- login
+- sign up as a user: automatically be authenticated with Codeup domain, or require admin approval for new domains 
+- view a description of available features and views
 - search for key terms like a cohort name, date, or event
-- view the calendar for any individual cohort by name
-- easily access key calendar information, like start dates, graduation dates, and holidays
-- login or sign-up as a user and create a profile page with automated auth with Codeup domain
-- non Codeup domains need approval by admin
 
 #### As a user, I can:
-- add new cohorts
-- edit cohort calendars by program, location, start date
-- add comments to cohort calendars with post confirmation
-- edit cohort calendars that I have edit access to by program, location, start date
+- login/logout
+- view cohort information: name, program type, campus location, start date, grad date, contact hours
+- view cohort calendars, filtering by campus or program type
+- view holidays: name, date
 
 
 #### As an admin, I can:
 - manage users (Add, Delete, Update)
 - manager user permissions
-- manage campuses
-- manage programs
+- add, edit, or delete cohorts
+- add, edit, or delete holidays
 
 #### Feature List
-- register users and login auth
-- assign week-day values
-- assign holidays and no-class days
-- input a start date and contact hours to output graduation
-- render a visualization to show cohort overlaps
-- render a table to show daily lesson delivery schedule
-- give users permissions to edit different calendars
-- moderate comments, including hiding/deleting
+- [x] register and authenticate users and login
+- [x] restrict views based on user permissions
+- [x] add, edit, and delete holidays
+- [x] assign holidays 0 hour values
+- [x] add, edit, and delete cohorts
+- [x] automatically calculate graduation dates based on start date, hours, and holidays
+- [x] render a visualization to show cohort overlaps
+- [x] filter calendar views by program or campus
+- [ ] filter cohorts by program, campus, or year
+- [ ] render a table to show daily lesson delivery schedule
+
+## Demo
+Live demo can be viewed here:
 
 ## To Do
-- ~~abstract class for program type that initializes contact hours and daily hours and declares start date and name~~
-- ~~cohort class that extends program type and a constructor with name and start date~~
-- ~~create a cohort form view~~
-- ~~create a CohortData class to store temporary data~~
-- ~~create a cohortcontroller~~
-- ~~build footer fragment~~
-- ~~create holiday model class with name, date, and hours properties~~
-- ~~create holiday constructor~~
-- ~~implement login functionality~~
-- ~~add register page link~~
-- ~~update cohort form to appropriate data inputs~~
-- ~~get navbar dropdown menu to work~~
-- ~~fix spring security dependencies issue~~
-- ~~implement sign up and login functionality with spring security~~
-- ~~Programmatic login after registering a user~~
-- ~~Skip login page if user is authenticated~~
-- ~~add springboot devtools~~
-- ~~create PostMapping for login to profile page~~
-- ~~create holidays view fragment and form~~
-- ~~display data from MySQL holidays table to a table on holidays view~~
-- ~~display data from mysql cohorts to cohorts view table~~
-- ~~add 'all calendars' to calendars dropdown~~
-- ~~build feature that hides login/logout depending on authenticated status~~
-- ~~add scripts to individual calendar views for dropdown functionality~~
-- ~~replace holidays view 'add holiday' form with an 'edit holidays' button~~
-- ~~build 'holidays/edit' view and method~~
-- ~~replace cohorts view 'add cohort' form with an 'edit cohorts' button~~
-- ~~build 'cohorts/edit' view and method~~
-- ~~add a calendar to the all calendars view~~
-- ~~implement fullcalendar~~
-- ~~add js calendar to all calendar views~~
-- ~~get logo to show up in nav bar~~
-- ~~fix date by removing time within date column in holidays and cohorts tables~~
-- ~~fix bug: cannot click calendar dropdown view while on the "all calendars" page~~
-- ~~fix "delete" feature on holidays~~
-- ~~fix "edit" feature on holidays~~
-- ~~fix "delete" feature on cohorts~~
- - ~~fix "edit" feature on cohorts~~
-- ~~fix add cohort feature in CohortController~~
-- ~~fix add holiday feature in HolidayController~~
-- ~~fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?~~
-- ~~fix bug in holiday form submission: name is not saving~~
-- ~~finish grad date calculation feature~~
-- ~~add grad date values to cohort view grid~~
-- ~~implement a gantt chart to show cohort calendars~~
-- ~~html forms accepting dates are saving strings, but need to be stored in DB as Dates~~
-- populate a Google Calendar with cohort information
-- ~~connect gantt chart to cohorts table to change from static to dynamic data input~~
-- ~~create unique gantt chart views for each calendar subdivision~~ 
-- add filter to cohorts to view by program, city, or year
-- ~~make cohort chart sort chronologically by start date~~
-- add holidays filter to select year
-- ~~make holidays chart sort chronoligically~~
-- ~~add warning popup when deleting cohorts or holidays~~
+- [x] abstract class for program type that initializes contact hours and daily hours and declares start date and name
+- [x] cohort class that extends program type and a constructor with name and start date
+- [x] create a cohort form view
+- [x] create a CohortData class to store temporary data
+- [x] create a cohortcontroller
+- [x] build footer fragment
+- [x] create holiday model class with name, date, and hours properties
+- [x] create holiday constructor
+- [x] implement login functionality
+- [x] add register page link
+- [x] update cohort form to appropriate data inputs
+- [x] get navbar dropdown menu to work
+- [x] fix spring security dependencies issue
+- [x] implement sign up and login functionality with spring security
+- [x] Programmatic login after registering a user
+- [x] Skip login page if user is authenticated
+- [x] add springboot devtools
+- [x] create PostMapping for login to profile page
+- [x] create holidays view fragment and form
+- [x] display data from MySQL holidays table to a table on holidays view
+- [x] display data from mysql cohorts to cohorts view table
+- [x] add 'all calendars' to calendars dropdown
+- [x] build feature that hides login/logout depending on authenticated status
+- [x] add scripts to individual calendar views for dropdown functionality
+- [x] replace holidays view 'add holiday' form with an 'edit holidays' button
+- [x] build 'holidays/edit' view and method
+- [x] replace cohorts view 'add cohort' form with an 'edit cohorts' button
+- [x] build 'cohorts/edit' view and method
+- [x] add a calendar to the all calendars view
+- [x] implement fullcalendar
+- [x] add js calendar to all calendar views
+- [x] get logo to show up in nav bar
+- [x] fix date by removing time within date column in holidays and cohorts tables
+- [x] fix bug: cannot click calendar dropdown view while on the "all calendars" page
+- [x] fix "delete" feature on holidays
+- [x] fix "edit" feature on holidays
+- [x] fix "delete" feature on cohorts
+- [x] fix "edit" feature on cohorts
+- [x] fix add cohort feature in CohortController
+- [x] fix add holiday feature in HolidayController
+- [x] fix date formatting in new holiday form submission: date is appearing 1 day behind - timezone issue?
+- [x] fix bug in holiday form submission: name is not saving
+- [x] finish grad date calculation feature
+- [x] add grad date values to cohort view grid
+- [x] implement a gantt chart to show cohort calendars
+- [x] html forms accepting dates are saving strings, but need to be stored in DB as Dates
+- [ ] populate a Google Calendar with cohort information
+- [x] connect gantt chart to cohorts table to change from static to dynamic data input
+- [x] create unique gantt chart views for each calendar subdivision 
+- [ ] add filter to cohorts to view by program, city, or year
+- [x] make cohort chart sort chronologically by start date
+- [ ] add holidays filter to select year
+- [x] make holidays chart sort chronoligically
+- [x] add warning popup when deleting cohorts or holidays
 
 
 #### Database
-- ~~add campuses table and seed~~
-- ~~build db design~~
-- ~~fix sql file and seed holidays table~~
-- ~~fix sql file seed cohorts table~~
-- ~~create db table for program type~~ 
-- ~~create db table for campus~~
-- ~~add grad date column to cohort db~~
-- create a table for lesson delivery
+- [x] add campuses table and seed
+- [x] build db design
+- [x] fix sql file and seed holidays table
+- [x] fix sql file seed cohorts table
+- [x] create db table for program type 
+- [x] create db table for campus
+- [x] add grad date column to cohort db
+- [ ] create a table for lesson delivery
 
 #### Permissions
-- restrict edit and delete features to admins
-- add login functionality with google 2ath
+- [ ] restrict 'edit' and 'delete' features to admins
+- [ ] add login functionality with google 2ath
 
 
 
 #### Calculating end date
-- ~~assign hours values to days of the week~~
-- ~~given a date, determine the day of the week using LocalDate and assign appropriate hours value~~
-- ~~cross-echeck currentdate against holidays~~
-- ~~start on the startDate~~
-- ~~add hours value to totalHours~~
-- ~~move to next date, while totalHours<contactHours (stop when we hit ContactHours)~~  
+- [x] assign hours values to days of the week
+- [x] given a date, determine the day of the week using LocalDate and assign appropriate hours value
+- [x] cross-echeck currentdate against holidays
+- [x] start on the startDate
+- [x] add hours value to totalHours
+- [x] move to next date, while totalHours<contactHours (stop when we hit ContactHours)  
 
 #### Rendering Calendar
-- ~~write a controller method to retrieve cohort name, start date, grad date, campus, and program type from the cohorts database and return json~~ 
-- ~~concatenate 'program' and 'campus' to use as "Resource" field~~ 
-- ~~addColumns for gantt chart requirements~`
-- ~~add rows for each cohort~~
-- ~~pass null values for unnecessary fields~~
-- ~~retrieve json data with an ajax request~~ 
-- ~~pass data into draw chart~~
-- ~~add function to select and filter by resource (campus/program) type~~
-- ~~remove alternate calendar views and turn links into buttons for viewing on "Calendars" page~~
-- build a feature to auto calculate percent completion
+- [x] write a controller method to retrieve cohort name, start date, grad date, campus, and program type from the cohorts database and return json 
+- [x] concatenate 'program' and 'campus' to use as "Resource" field 
+- [x] addColumns for gantt chart requirements
+- [x] add rows for each cohort
+- [x] pass null values for unnecessary fields
+- [x] retrieve json data with an ajax request 
+- [x] pass data into draw chart
+- [x] add function to select and filter by resource (campus/program) type
+- [x] remove alternate calendar views and turn links into buttons for viewing on "Calendars" page
+- [ ] build a feature to auto calculate percent completion
 
 
 #### Bugs
-- ~~campuses/program name case sensitivity matching/displaying issue~~
-- ~~footer is floating~~
-- ~~login form input boxes are not aligned~~
-- search bar is not centered
-- username/email name mismatch
-- footer is covering page content
-- footer not present on all pages
-- home page buttons are not on the same horizontal line
-- horizontal lines on cohorts and holidays don't extend across edit and delete
-- ~~calendar buttons dont match color scheme~~
-- center cohort calendar buttons
+- [x] campuses/program name case sensitivity matching/displaying issue
+- [x] footer is floating
+- [x] login form input boxes are not aligned
+- [ ] search bar is not centered
+- [ ] username/email name mismatch
+- [ ] footer is covering page content
+- [ ] footer not present on all pages
+- [ ] home page buttons are not on the same horizontal line
+- [ ] horizontal lines on cohorts and holidays don't extend across edit and delete
+- [x] calendar buttons dont match color scheme
+- [x] center cohort calendar buttons
 
 
-## Demo
-Live demo can be viewed here:
