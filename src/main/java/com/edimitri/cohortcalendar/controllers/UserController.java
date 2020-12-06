@@ -35,7 +35,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder1;
         this.roles = roles;
     }
-
+/*
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
@@ -48,7 +48,7 @@ public class UserController {
         userRepository.save(user);
         authenticate(user);
         return "redirect:/profile";
-    }
+    }*/
 
     private void authenticate(User user) {
         UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
