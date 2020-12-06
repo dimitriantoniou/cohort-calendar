@@ -354,6 +354,11 @@ footer h3 {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+.form-login input[type="username"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 
 /* button styles from: http://blog.koalite.com/bbg/ */
 .btn {
