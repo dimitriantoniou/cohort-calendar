@@ -114,11 +114,11 @@ Live demo can be viewed here:
 - [x] create db table for program type 
 - [x] create db table for campus
 - [x] add grad date column to cohort db
-- [ ] create a table for lesson delivery
+- [x] create a table for lesson delivery
 
 #### Permissions
 - [ ] restrict 'edit' and 'delete' features to admins
-- [ ] add login functionality with google 2ath
+- [ ] add login functionality with google 0auth2
 
 
 
@@ -148,9 +148,10 @@ Live demo can be viewed here:
 - [x] footer is floating
 - [x] login form input boxes are not aligned
 - [ ] search bar is not centered
-- [ ] username/email name mismatch
-- [ ] footer is covering page content
-- [ ] footer not present on all pages
+- [x] username/email name mismatch
+- [x] footer is covering page content
+- [x] footer not present on all pages
+- [ ] footer on calendars page has blank space below it
 - [ ] home page buttons are not on the same horizontal line
 - [ ] horizontal lines on cohorts and holidays don't extend across edit and delete
 - [x] calendar buttons dont match color scheme
