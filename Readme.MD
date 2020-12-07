@@ -12,7 +12,7 @@ The application then outputs the graduation date and a gantt chart visualization
 Visitors can log in or sign up. Users can view cohort, holiday, and calendar details. Admins can add, edit, and delete cohorts and holidays.
 
 ## Demo
-Live demo can be viewed here:
+Live demo can be viewed here: https://www.codeupcalendar.com
 
 ## User stories
 
