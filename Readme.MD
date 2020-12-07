@@ -151,7 +151,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] username/email name mismatch
 - [x] footer is covering page content
 - [x] footer not present on all pages
-- [ ] footer on calendars page has blank space below it
+- [x] footer on calendars page has blank space below it
 - [ ] home page buttons are not on the same horizontal line
 - [ ] horizontal lines on cohorts and holidays don't extend across edit and delete
 - [x] calendar buttons dont match color scheme
