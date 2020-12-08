@@ -18,6 +18,8 @@
         <th><h2>Start Date</h2></th>
         <th><h2>Graduation Date</h2></th>
         <th><h2>Contact Hours</h2></th>
+        <th><h2>Edit</h2></th>
+        <th><h2>Delete</h2></th>
     </tr>
     <tr th:each="cohort : ${#lists.sort(cohorts,byStartDate)}">
         <td th:text="${cohort.name}"></td>
