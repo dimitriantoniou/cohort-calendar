@@ -153,7 +153,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] footer not present on all pages
 - [x] footer on calendars page has blank space below it
 - [ ] home page buttons are not on the same horizontal line
-- [ ] horizontal lines on cohorts and holidays don't extend across edit and delete
+- [x] horizontal lines on cohorts and holidays don't extend across edit and delete
 - [x] calendar buttons dont match color scheme
 - [x] center cohort calendar buttons
 - [ ] time zone issue
