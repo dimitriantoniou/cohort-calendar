@@ -70,4 +70,6 @@ public class UserController {
     public String allUsers() {
         return "users/all-users";
     }
+
+
 }

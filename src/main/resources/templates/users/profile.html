@@ -7,6 +7,20 @@
 <h1>Profile</h1>
 
 <p>Welcome to your profile!</p>
+<div th:object="${user}">
+<h2 th:text="${user.firstName}"> Profile</h2>
+    <ul>
+        <p>
+            <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><i class="material-icons ">edit</i></a>
+        </p>
+        <p>
+            Username: <span class="title" th:text="${user.username}"></span>
+        </p>
+        <p>
+            Email: <span th:text="${user.email}"></span>
+        </p>
+    </ul>
+</div>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>
