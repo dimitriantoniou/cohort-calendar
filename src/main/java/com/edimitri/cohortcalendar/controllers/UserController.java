@@ -1,5 +1,7 @@
 package com.edimitri.cohortcalendar.controllers;
 
+import com.edimitri.cohortcalendar.models.Cohort;
+import com.edimitri.cohortcalendar.models.CohortDay;
 import com.edimitri.cohortcalendar.models.User;
 import com.edimitri.cohortcalendar.models.UserWithRoles;
 import com.edimitri.cohortcalendar.repositories.Roles;
@@ -15,9 +17,12 @@ import com.edimitri.cohortcalendar.repositories.UserRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -61,9 +66,27 @@ public class UserController {
         context.setAuthentication(auth);
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/user/{id}")
     public String profile(){
         return "users/profile";
+    }
+
+    @GetMapping("/user/{id}/edit")
+    public String showUpdateProfileForm(@PathVariable("id") Long id, Model model){
+        User user=userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("invalid user id: " +id));
+        model.addAttribute("user",user);
+        return"cohorts/edit";
+    }
+    @PostMapping("user/{id}/edit")
+    public String editProfile(@PathVariable Long id, @Valid User editedUser, Model model){
+        editedUser.setId(id);
+        editedUser.setFirstName(editedUser.getFirstName());
+        editedUser.setLastName(editedUser.getLastName());
+        editedUser.setUsername(editedUser.getUsername());
+        editedUser.setPassword(editedUser.getPassword());
+        userRepository.save(editedUser);
+        return"redirect:/profile";
     }
 
     @GetMapping("/users/all-users")

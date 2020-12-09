@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<title>Profile</title>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+<h1>Edit profile</h1>
+
+<form action="#" th:action="@{/user/{id}/edit(id=${user.id})}" th:object="${user}" th:method="POST" style="max-width:600px;">
+
+    <div class="form-group">
+        <label for="firstName-field">First Name</label>
+        <input class="form-control" type="text" id="firstName-field" th:field="*{firstName}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName-field">LastName</label>
+        <input class="form-control" type="text" id="lastName-field" th:field="*{lastName}"/>
+    </div>
+
+    <div class="username">
+        <label for="username-field">Username</label>
+        <input class="form-control" type="text" id="username-field" th:field="*{username}"/>
+    </div>
+
+    <div class="username">
+        <label for="password-field">Password</label>
+        <input class="form-control" type="text" id="password-field" th:field="*{password}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="startDate-field">Start date</label>
+        <input class="form-control" type="date" id="startDate-field" th:field="*{startDate}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="programType-field">Select program type</label>
+        <select th:field="*{programType}" class="form-control" id="programType-field">
+            <option value="Full-Stack Web Dev - Java">Full-Stack Web Development</option>
+            <option value="Data Science">Data Science</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="campus-field">Campus (SAT, DAL, HOU, AUS)</label>
+        <input class="form-control" type="text" id="campus-field" th:field="*{campus}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="contactHours-field">Contact hours</label>
+        <input class="form-control" type="text" id="contactHours-field" th:field="*{contactHours}"/>
+    </div>
+
+    <input type="submit" value="Update Cohort"/>
+</form>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
