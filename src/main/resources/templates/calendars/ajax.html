@@ -40,16 +40,23 @@
             var queryString;
             if (currentUrl.includes("SAT")) {
                 queryString = "/calendars.json?campus=sat";
+                $("#SAT-calendar-filter").css("background-color", "#FFC20E");
                 } else if (currentUrl.includes("DAL")) {
                 queryString = "/calendars.json?campus=dal";
-                } else if (currentUrl.includes("HOU")) {
+                $("#DAL-calendar-filter").css("background-color", "#FFC20E");
+            } else if (currentUrl.includes("HOU")) {
                     queryString = "/calendars.json?campus=hou";
-                }else if (currentUrl.includes("java")) {
+                $("#HOU-calendar-filter").css("background-color", "#FFC20E");
+            }else if (currentUrl.includes("java")) {
                     queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
-                } else if (currentUrl.includes("science")) {
+                $("#WD-calendar-filter").css("background-color", "#FFC20E");
+            } else if (currentUrl.includes("science")) {
                     queryString = "/calendars.json?programType=data+science";
-                } else{
+                    $("#DS-calendar-filter").css("background-color", "#FFC20E");
+            } else{
                 queryString="/calendars.json";
+                $("#All-calendar-filter").css("background-color", "#FFC20E");
+
             }
 
             console.log(queryString);
@@ -74,6 +81,8 @@
         }
         google.charts.load('current', {'packages':['gantt']});
         google.charts.setOnLoadCallback(drawChart);
+
+
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
@@ -84,15 +93,15 @@
 <h1>Cohort Calendar</h1>
 
 <div id="calendar-buttons">
-<a class="btn btn-green" href="/calendars/ajax" role="button">All Calendars</button></a>
+<a class="btn btn-green" href="/calendars/ajax" role="button"id="All-calendar-filter">All Calendars</button></a>
     <div id="calendars-by-campus">
-<a class="btn btn-green" href="/calendars/ajax?campus=SAT" role="button">SAT</button></a>
-<a class="btn btn-green" href="/calendars/ajax?campus=DAL" role="button">DAL</button></a>
-<a class="btn btn-green" href="/calendars/ajax?campus=HOU" role="button">HOU</button></a>
+<a class="btn btn-green" href="/calendars/ajax?campus=SAT" role="button" id="SAT-calendar-filter">SAT</button></a>
+<a class="btn btn-green" href="/calendars/ajax?campus=DAL" role="button"id="DAL-calendar-filter">DAL</button></a>
+<a class="btn btn-green" href="/calendars/ajax?campus=HOU" role="button"id="HOU-calendar-filter">HOU</button></a>
     </div>
     <div id="calendars-by-program">
-<a class="btn btn-green" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
-<a class="btn btn-green" href="/calendars/ajax?programType=data+science" role="button">Data Science</button></a>
+<a class="btn btn-green" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button"id="WD-calendar-filter">Web Dev</button></a>
+<a class="btn btn-green" href="/calendars/ajax?programType=data+science" role="button"id="DS-calendar-filter">Data Science</button></a>
     </div>
 </div>
 <hr>

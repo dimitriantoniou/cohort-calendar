@@ -141,6 +141,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] add function to select and filter by resource (campus/program) type
 - [x] remove alternate calendar views and turn links into buttons for viewing on "Calendars" page
 - [ ] build a feature to auto calculate percent completion
+- [x] active button filter is a different color
 
 
 #### Bugs
@@ -156,7 +157,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] horizontal lines on cohorts and holidays don't extend across edit and delete
 - [x] calendar buttons dont match color scheme
 - [x] center cohort calendar buttons
-- [ ] time zone translation issue: dates added to holiday/cohort are being stored 1 day earlier 
-- [ ] 2020 grad dates not correct
+- [x] time zone translation issue: dates added to holiday/cohort are being stored 1 day earlier 
+- [x] 2020 grad dates not correct
 
 
