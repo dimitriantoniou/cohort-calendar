@@ -156,7 +156,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] horizontal lines on cohorts and holidays don't extend across edit and delete
 - [x] calendar buttons dont match color scheme
 - [x] center cohort calendar buttons
-- [ ] time zone issue
+- [ ] time zone translation issue: dates added to holiday/cohort are being stored 1 day earlier 
 - [ ] 2020 grad dates not correct
 
 
