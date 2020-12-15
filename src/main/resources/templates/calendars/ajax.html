@@ -48,6 +48,8 @@
                     queryString = "/calendars.json?programType=full-stack+web+dev+-+java";
                 } else if (currentUrl.includes("science")) {
                     queryString = "/calendars.json?programType=data+science";
+                } else if (currentUrl.includes("new")) {
+                queryString = "/calendars.json?programType=new+program";
                 } else{
                 queryString="/calendars.json";
             }
@@ -93,6 +95,8 @@
     <div id="calendars-by-program">
 <a class="btn btn-green" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button">Web Dev</button></a>
 <a class="btn btn-green" href="/calendars/ajax?programType=data+science" role="button">Data Science</button></a>
+<a class="btn btn-green" href="/calendars/ajax?programType=new+program" role="button">New Program</button></a>
+
     </div>
 </div>
 <hr>
