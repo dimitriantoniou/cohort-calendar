@@ -53,6 +53,9 @@
             } else if (currentUrl.includes("science")) {
                     queryString = "/calendars.json?programType=data+science";
                     $("#DS-calendar-filter").css("background-color", "#FFC20E");
+            } else if (currentUrl.includes("new")) {
+                queryString = "/calendars.json?programType=new+program";
+                $("#new-calendar-filter").css("background-color", "#FFC20E");
             } else{
                 queryString="/calendars.json";
                 $("#All-calendar-filter").css("background-color", "#FFC20E");
@@ -102,6 +105,8 @@
     <div id="calendars-by-program">
 <a class="btn btn-green" href="/calendars/ajax?programType=full-stack+web+dev+-+java" role="button"id="WD-calendar-filter">Web Dev</button></a>
 <a class="btn btn-green" href="/calendars/ajax?programType=data+science" role="button"id="DS-calendar-filter">Data Science</button></a>
+<a class="btn btn-green" href="/calendars/ajax?programType=new+program" role="button"id="new-calendar-filter">New Program</button></a>
+
     </div>
 </div>
 <hr>
