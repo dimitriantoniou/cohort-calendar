@@ -1,10 +1,9 @@
 package com.edimitri.cohortcalendar.controllers;
 
-import com.edimitri.cohortcalendar.models.Cohort;
-import com.edimitri.cohortcalendar.models.CohortDay;
-import com.edimitri.cohortcalendar.models.User;
-import com.edimitri.cohortcalendar.models.UserWithRoles;
+import com.edimitri.cohortcalendar.models.*;
 import com.edimitri.cohortcalendar.repositories.Roles;
+import com.edimitri.cohortcalendar.services.UserService;
+import com.google.inject.internal.Errors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -66,27 +65,100 @@ public class UserController {
         context.setAuthentication(auth);
     }
 
-    @GetMapping("/user/{id}")
-    public String profile(){
+    @PostMapping("/users/create")
+    public String saveUser(@Valid User user, Errors validation, Model m){
+
+        String username = user.getUsername();
+        User existingUsername = UserRepository.findByUsername(username);
+        User existingEmail = UserRepository.findByEmail(user.getEmail());
+
+/*
+        if(existingUsername != null){
+
+            validation.rejectValue("username", "user.username", "Duplicated username " + username);
+
+        }
+
+        if(existingEmail != null){
+
+            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
+
+        }
+
+ */
+
+        if (validation.hasErrors()) {
+            m.addAttribute("errors", validation);
+            m.addAttribute("user", user);
+            return "users/create";
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // Custom validation if the username is taken
+
+        User newUser = UserRepository.save(user);
+
+        UserRole ur = new UserRole();
+        ur.setRole("ROLE_USER");
+        ur.setUserId(newUser.getId());
+        userRoles.save(ur);
+
+        // Programmatic login after registering a user
+        UserService.authenticate(user);
+
+        m.addAttribute("user", user);
+        return "redirect:/";
+
+    }
+
+
+    @GetMapping("/users/profile")
+    public String showProfile(Model viewModel){
+        User logUser = UserService.loggedInUser();
+
+        if(logUser == null){
+            viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
+            return "error";
+        }
+
+        return "redirect:/users/" + UserService.loggedInUser().getId();
+    }
+    @GetMapping("/users/{id}")
+    public String showUser(@PathVariable Long id, Model viewModel){
+        User user = userRepository.getOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("sessionUser", UserService.loggedInUser());
+        viewModel.addAttribute("showEditControls", UserService.canEditProfile(user));
         return "users/profile";
     }
 
-    @GetMapping("/user/{id}/edit")
-    public String showUpdateProfileForm(@PathVariable("id") Long id, Model model){
-        User user=userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("invalid user id: " +id));
-        model.addAttribute("user",user);
-        return"cohorts/edit";
+
+    @GetMapping("/users/{id}/edit")
+    public String showEditForm(@PathVariable Long id, Model viewModel){
+        User user = UserRepository.getOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("showEditControls", UserService.canEditProfile(user));
+        return "users/edit";
     }
-    @PostMapping("user/{id}/edit")
-    public String editProfile(@PathVariable Long id, @Valid User editedUser, Model model){
+    @PostMapping("/users/{id}/edit")
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model m){
+
         editedUser.setId(id);
-        editedUser.setFirstName(editedUser.getFirstName());
-        editedUser.setLastName(editedUser.getLastName());
-        editedUser.setUsername(editedUser.getUsername());
-        editedUser.setPassword(editedUser.getPassword());
-        userRepository.save(editedUser);
-        return"redirect:/profile";
+
+        if (validation.hasErrors()) {
+            m.addAttribute("errors", validation);
+            m.addAttribute("user", editedUser);
+            m.addAttribute("showEditControls", checkEditAuth(editedUser));
+            return "users/edit";
+        }
+        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
+        UserRepository.save(editedUser);
+        return "redirect:/users/"+id;
+    }
+
+    public Boolean checkEditAuth(User user){
+        return UserService.isLoggedIn() && (user.getId() == UserService.loggedInUser().getId());
     }
 
     @GetMapping("/users/all-users")

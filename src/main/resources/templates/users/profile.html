@@ -9,17 +9,23 @@
 <p>Welcome to your profile!</p>
 <div th:object="${user}">
 <h2 th:text="${user.firstName}"> Profile</h2>
-    <ul>
-        <p>
-            <aclass="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><i class="material-icons ">edit</i></a>
-        </p>
-        <p>
-            Username: <span class="title" th:text="${user.username}"></span>
-        </p>
-        <p>
-            Email: <span th:text="${user.email}"></span>
-        </p>
-    </ul>
+    <div class="row">
+        <div class="col l10 offset-2" th:object="${user}">
+            <h4>User Profile</h4>
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle user-icon" />
+                    <a th:if="${showEditControls}" class="btn btn-floating right" th:href="@{/users/{id}/edit(id=${user.id}) }"><i class="material-icons ">edit</i></a>
+                    <p>
+                        Username: <span class="title" th:text="${user.username}"></span>
+                    </p>
+                    <p>
+                        Email: <span th:text="${user.email}"></span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <footer th:replace="fragments :: footer"></footer>
