@@ -1,7 +1,6 @@
 package com.edimitri.cohortcalendar.controllers;
 
 import com.edimitri.cohortcalendar.models.*;
-import com.edimitri.cohortcalendar.repositories.Roles;
 import com.edimitri.cohortcalendar.services.UserService;
 import com.google.inject.internal.Errors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +14,26 @@ import org.springframework.stereotype.Controller;
 import com.edimitri.cohortcalendar.repositories.UserRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.Collections;
-import java.util.List;
 
 @Controller
 public class UserController {
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    private Roles roles;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
-    public UserController(
-            UserRepository userRepository,
-            PasswordEncoder passwordEncoder,
-            UserRepository userRezpository, PasswordEncoder passwordEncoder1, Roles roles
-    ) {
-        this.userRepository = userRezpository;
-        this.passwordEncoder = passwordEncoder1;
-        this.roles = roles;
-    }
+    private PasswordEncoder passwordEncoder;
+
+    /*@Autowired
+    private UserRoles userRoles;*/
+
+    @Autowired
+    private UserService userService;
+
 /*
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
@@ -65,14 +60,14 @@ public class UserController {
         context.setAuthentication(auth);
     }
 
-    @PostMapping("/users/create")
+    /*@PostMapping("/users/create")
     public String saveUser(@Valid User user, Errors validation, Model m){
 
         String username = user.getUsername();
-        User existingUsername = UserRepository.findByUsername(username);
-        User existingEmail = UserRepository.findByEmail(user.getEmail());
+        User existingUsername = userRepository.findByUsername(username);
+        User existingEmail = userRepository.findByEmail(user.getEmail());
 
-/*
+*//*
         if(existingUsername != null){
 
             validation.rejectValue("username", "user.username", "Duplicated username " + username);
@@ -85,7 +80,7 @@ public class UserController {
 
         }
 
- */
+ *//*
 
         if (validation.hasErrors()) {
             m.addAttribute("errors", validation);
@@ -110,7 +105,7 @@ public class UserController {
         m.addAttribute("user", user);
         return "redirect:/";
 
-    }
+    }*/
 
 
     @GetMapping("/users/profile")
@@ -119,7 +114,7 @@ public class UserController {
 
         if(logUser == null){
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
-            return "error";
+            return "errora";
         }
 
         return "redirect:/users/" + UserService.loggedInUser().getId();
@@ -136,7 +131,7 @@ public class UserController {
 
     @GetMapping("/users/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model viewModel){
-        User user = UserRepository.getOne(id);
+        User user = userRepository.getOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("showEditControls", UserService.canEditProfile(user));
         return "users/edit";
@@ -153,7 +148,7 @@ public class UserController {
             return "users/edit";
         }
         editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
-        UserRepository.save(editedUser);
+        userRepository.save(editedUser);
         return "redirect:/users/"+id;
     }
 
