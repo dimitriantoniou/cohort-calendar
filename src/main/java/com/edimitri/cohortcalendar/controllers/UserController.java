@@ -149,7 +149,7 @@ public class UserController {
         }
         editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
         userRepository.save(editedUser);
-        return "redirect:/users/"+id;
+        return "redirect:/users/" + UserService.loggedInUser().getId();
     }
 
     public Boolean checkEditAuth(User user){
