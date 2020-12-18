@@ -8,7 +8,15 @@
 
 <p>Welcome to your profile!</p>
 <div th:object="${user}">
-<h2 th:text="${user.firstName}"> Profile</h2>
+<table class="table">
+    <tr>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.username}"></td>
+    </tr>
+</table>
+    <td><a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn btn-warning">Edit Profile</a></td>
 </div>
 
 <footer th:replace="fragments :: footer"></footer>

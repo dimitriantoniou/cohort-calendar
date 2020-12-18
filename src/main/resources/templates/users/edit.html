@@ -18,39 +18,17 @@
         <input class="form-control" type="text" id="lastName-field" th:field="*{lastName}"/>
     </div>
 
-    <div class="username">
+    <div class="form-group">
         <label for="username-field">Username</label>
         <input class="form-control" type="text" id="username-field" th:field="*{username}"/>
     </div>
 
-    <div class="username">
-        <label for="password-field">Password</label>
-        <input class="form-control" type="text" id="password-field" th:field="*{password}"/>
+    <div class="form-group">
+        <label for="email-field">Email</label>
+        <input class="form-control" type="text" id="email-field" th:field="*{email}"/>
     </div>
 
-    <div class="form-group">
-        <label for="startDate-field">Start date</label>
-        <input class="form-control" type="date" id="startDate-field" th:field="*{startDate}"/>
-    </div>
-
-    <div class="form-group">
-        <label for="programType-field">Select program type</label>
-        <select th:field="*{programType}" class="form-control" id="programType-field">
-            <option value="Full-Stack Web Dev - Java">Full-Stack Web Development</option>
-            <option value="Data Science">Data Science</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="campus-field">Campus (SAT, DAL, HOU, AUS)</label>
-        <input class="form-control" type="text" id="campus-field" th:field="*{campus}"/>
-    </div>
-
-    <div class="form-group">
-        <label for="contactHours-field">Contact hours</label>
-        <input class="form-control" type="text" id="contactHours-field" th:field="*{contactHours}"/>
-    </div>
-
-    <input type="submit" value="Update Cohort"/>
+    <input type="submit" value="Update Profile"/>
 </form>
 
 <footer th:replace="fragments :: footer"></footer>
