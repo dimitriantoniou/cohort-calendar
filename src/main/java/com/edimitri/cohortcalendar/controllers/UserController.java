@@ -116,7 +116,6 @@ public class UserController {
             viewModel.addAttribute("msg", "You need to be logged in to be able to see this page");
             return "errora";
         }
-
         return "redirect:/users/" + UserService.loggedInUser().getId();
     }
     @GetMapping("/users/{id}")
@@ -147,6 +146,9 @@ public class UserController {
             m.addAttribute("showEditControls", checkEditAuth(editedUser));
             return "users/edit";
         }
+        editedUser.setFirstName(editedUser.getFirstName());
+        editedUser.setLastName(editedUser.getLastName());
+        editedUser.setEmail(editedUser.getEmail());
         editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
         userRepository.save(editedUser);
         return "redirect:/users/" + UserService.loggedInUser().getId();
