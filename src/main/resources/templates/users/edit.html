@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<title>Profile</title>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+<h1>Edit profile</h1>
+
+<form action="#" th:action="@{/user/{id}/edit(id=${user.id})}" th:object="${user}" th:method="POST" style="max-width:600px;">
+
+    <div class="form-group">
+        <label for="firstName-field">First Name</label>
+        <input class="form-control" type="text" id="firstName-field" th:field="*{firstName}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName-field">LastName</label>
+        <input class="form-control" type="text" id="lastName-field" th:field="*{lastName}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="username-field">Username</label>
+        <input class="form-control" type="text" id="username-field" th:field="*{username}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="email-field">Email</label>
+        <input class="form-control" type="text" id="email-field" th:field="*{email}"/>
+    </div>
+
+    <input type="submit" value="Update Profile"/>
+</form>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
