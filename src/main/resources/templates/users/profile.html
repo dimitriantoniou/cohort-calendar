@@ -10,6 +10,12 @@
 <div th:object="${user}">
 <table class="table">
     <tr>
+        <td><h2>First Name</h2></td>
+        <td><h2>Last Name</h2></td>
+        <td><h2>Email</h2></td>
+        <td><h2>Username</h2></td>
+    </tr>
+    <tr>
         <td th:text="${user.firstName}"></td>
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.email}"></td>
