@@ -160,5 +160,6 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] time zone translation issue: dates added to holiday/cohort are being stored 1 day earlier 
 - [x] 2020 grad dates not correct
 - [ ] daily hours does not differentiate between WD and DS - both have the same daily hours
+- [ ] edit profile submit button returns 404 error
 
 
