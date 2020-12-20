@@ -136,16 +136,16 @@ public class UserController {
         return "users/edit";
     }
     @PostMapping("/users/{id}/edit")
-    public String editUser(@PathVariable Long id, @Valid User editedUser, Errors validation, Model m){
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Model m){
 
         editedUser.setId(id);
 
-        if (validation.hasErrors()) {
+        /*if (validation.hasErrors()) {
             m.addAttribute("errors", validation);
             m.addAttribute("user", editedUser);
             m.addAttribute("showEditControls", checkEditAuth(editedUser));
             return "users/edit";
-        }
+        }*/
         editedUser.setFirstName(editedUser.getFirstName());
         editedUser.setLastName(editedUser.getLastName());
         editedUser.setEmail(editedUser.getEmail());
