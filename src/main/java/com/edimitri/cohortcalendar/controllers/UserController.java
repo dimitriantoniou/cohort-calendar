@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import com.edimitri.cohortcalendar.repositories.UserRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -34,7 +35,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-/*
+
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
@@ -47,7 +48,7 @@ public class UserController {
         userRepository.save(user);
         authenticate(user);
         return "redirect:/profile";
-    }*/
+    }
 
     private void authenticate(User user) {
         UserDetails userDetails = new UserWithRoles(user, Collections.emptyList());
