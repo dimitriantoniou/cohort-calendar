@@ -47,7 +47,7 @@ public class UserController {
         user.setPassword(hash);
         userRepository.save(user);
         authenticate(user);
-        return "redirect:/profile";
+        return "index";
     }
 
     private void authenticate(User user) {
