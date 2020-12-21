@@ -34,6 +34,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - manager user permissions
 - add, edit, or delete cohorts
 - add, edit, or delete holidays
+- draft and publish cohorts and calendars
 
 #### Feature List
 - [x] register and authenticate users and login
@@ -46,6 +47,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] filter calendar views by program or campus
 - [ ] filter cohorts by program, campus, or year
 - [ ] render a table to show daily lesson delivery schedule
+- [ ] draft calendars with private view; publish for user viewing
 
 
 
@@ -160,6 +162,7 @@ Live demo can be viewed here: https://www.codeupcalendar.com
 - [x] time zone translation issue: dates added to holiday/cohort are being stored 1 day earlier 
 - [x] 2020 grad dates not correct
 - [ ] daily hours does not differentiate between WD and DS - both have the same daily hours
-- [ ] edit profile submit button returns 404 error
+- [x] edit profile submit button returns 404 error
+- [ ] cohort graduation dates don't automatically refresh based on changed holiday dates, only after updating the cohort
 
 
