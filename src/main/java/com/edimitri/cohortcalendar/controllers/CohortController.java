@@ -88,7 +88,7 @@ public class CohortController {
             } else {
                 dayDisplay = cohortDay.getDate().getDayOfWeek().toString();
             }
-            body += String.format("%s,%s,%s\n", cohortDay.getDate().toString(), cohortDay.getHours(), dayDisplay);
+            body += String.format("%s,%s,%s<br>", cohortDay.getDate().toString(), cohortDay.getHours(), dayDisplay);
         }
         return body;
     }
