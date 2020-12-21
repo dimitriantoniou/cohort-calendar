@@ -136,9 +136,8 @@ public class UserController {
         return "users/edit";
     }
     @PostMapping("/users/{id}/edit")
-    public String editUser(@PathVariable Long id, @Valid User editedUser, Model m){
-
-        editedUser.setId(id);
+    public String editUser(@PathVariable Long id, @Valid User editedUser, Model m) {
+        User user = userRepository.getOne(id);
 
         /*if (validation.hasErrors()) {
             m.addAttribute("errors", validation);
@@ -146,12 +145,14 @@ public class UserController {
             m.addAttribute("showEditControls", checkEditAuth(editedUser));
             return "users/edit";
         }*/
-        editedUser.setFirstName(editedUser.getFirstName());
-        editedUser.setLastName(editedUser.getLastName());
-        editedUser.setEmail(editedUser.getEmail());
-        editedUser.setPassword(passwordEncoder.encode(editedUser.getPassword()));
-        userRepository.save(editedUser);
-        return "redirect:/users/" + UserService.loggedInUser().getId();
+        user.setFirstName(editedUser.getFirstName());
+        user.setLastName(editedUser.getLastName());
+        user.setEmail(editedUser.getEmail());
+        if (!editedUser.getPassword().equals("")) {
+            user.setPassword(passwordEncoder.encode(editedUser.getPassword()));
+        }
+        userRepository.save(user);
+        return "redirect:/users/" + id;
     }
 
     public Boolean checkEditAuth(User user){

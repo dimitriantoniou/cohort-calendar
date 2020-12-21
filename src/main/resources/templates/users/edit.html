@@ -6,7 +6,7 @@
 <nav th:replace="fragments :: navbar"></nav>
 <h1>Edit profile</h1>
 
-<form action="#" th:action="@{/user/{id}/edit(id=${user.id})}" th:object="${user}" th:method="POST" style="max-width:600px;">
+<form th:action="@{/users/{id}/edit(id=${user.id})}" th:object="${user}" th:method="POST" style="max-width:600px;">
 
     <div class="form-group">
         <label for="firstName-field">First Name</label>
@@ -26,6 +26,11 @@
     <div class="form-group">
         <label for="email-field">Email</label>
         <input class="form-control" type="text" id="email-field" th:field="*{email}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="password-field">Password</label>
+        <input class="form-control" type="password" id="password-field" th:field="*{password}"/>
     </div>
 
     <input type="submit" value="Update Profile"/>
