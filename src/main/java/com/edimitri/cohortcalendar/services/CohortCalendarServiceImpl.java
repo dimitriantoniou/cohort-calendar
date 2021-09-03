@@ -53,7 +53,7 @@ public class CohortCalendarServiceImpl implements CohortCalendarService{
                 dayHours = 6;
                 break;
             case WEDNESDAY:
-                dayHours = 3.5;
+                dayHours = 7; // 3.5 Hours for 1/2 Day Wednesdays or 7 for full day
                 break;
             case THURSDAY:
                 dayHours = 6.5;
